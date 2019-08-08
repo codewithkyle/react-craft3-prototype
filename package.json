@@ -1,0 +1,22 @@
+{
+  "name": "react-craft3-prototype",
+  "author": "Kyle Andrews",
+  "license": "MIT",
+  "main": "src/index.tsx",
+  "dependencies": {
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
+    "react-scripts": "2.1.3"
+  },
+  "devDependencies": {
+    "@types/react": "16.8.8",
+    "@types/react-dom": "16.8.2",
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
