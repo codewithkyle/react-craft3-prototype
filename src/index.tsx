@@ -3,9 +3,11 @@ import { render } from "react-dom";
 
 /** CSS */
 import './base.css';
+import './forms.css';
 
 /** Components */
 import { LoginForm } from './LoginForm';
+import { DashboardShell } from './DashboardShell';
 
 class CoursesApp extends Component
 {
@@ -21,6 +23,7 @@ class CoursesApp extends Component
 		if (sessionToken)
 		{
 			/** TODO: Proceed to dashboard, session is still valid, user refreshed or restored their session */
+			new DashboardShell();
 		}
 		else
 		{

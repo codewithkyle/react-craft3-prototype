@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 
 import { LoginForm } from './LoginForm';
+import { DashboardShell } from './DashboardShell';
 
 export class SignupForm extends React.Component
 {
@@ -56,6 +57,7 @@ export class SignupForm extends React.Component
 				if (response.success)
 				{
 					sessionStorage.setItem('token', response.token);
+					new DashboardShell();
 				}
 				else if(response.errors.length)
 				{
