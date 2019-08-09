@@ -45,6 +45,15 @@ class V1Controller extends Controller
         return json_encode($response);
     }
 
+    public function actionLogout()
+    {
+        $this->requirePostRequest();
+        $this->requireAcceptsJson();
+        $request = Craft::$app->getRequest();
+        $response = PrototypeModule::$instance->userService->logoutUser($request->getBodyParams());
+        return json_encode($response);
+    }
+
     public function actionSignup()
     {
         $this->requirePostRequest();

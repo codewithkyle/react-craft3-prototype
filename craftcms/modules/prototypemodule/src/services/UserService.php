@@ -100,6 +100,33 @@ class UserService extends Component
         return $response;    
     }
 
+    public function logoutUser(Array $params)
+    {
+        $response['success'] = true;
+        $response['errors'] = [];
+
+        if (!isset($params['token']))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [ 'message' => 'Missing token' ];
+            return $response;
+        }
+
+        $user = User::find()->sessionToken($params['token'])->one();
+
+        if (empty($user))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [ 'message' => 'Invalid token' ];
+            return $response;
+        }
+
+        $user->setFieldValue('sessionToken', null);
+        Craft::$app->getElements()->saveElement($user, true);
+
+        return $response;
+    }
+
     public function signupUser(Array $params)
     {
         $response['success'] = true;
