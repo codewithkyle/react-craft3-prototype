@@ -20,7 +20,7 @@ use craft\web\Controller;
  * @package   PrototypeModule
  * @since     1.0.0
  */
-class DefaultController extends Controller
+class V1Controller extends Controller
 {
 
     // Protected Properties
@@ -31,9 +31,15 @@ class DefaultController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = [];
+    protected $allowAnonymous = ['hello-world'];
 
     // Public Methods
     // =========================================================================
-
+    public function actionHelloWorld()
+    {
+        $this->requirePostRequest();
+        $response['success'] = true;
+        $response['message'] = 'Hello client';
+        return json_encode($response);
+    }
 }

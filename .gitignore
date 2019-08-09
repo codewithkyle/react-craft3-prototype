@@ -6,3 +6,4 @@ vendor
 craftcms/storage/*
 !craftcms/storage/.gitkeep
 build
+.editorconfig
