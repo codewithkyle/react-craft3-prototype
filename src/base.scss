@@ -9,7 +9,7 @@
     --white: #fff;
 
     /* Font */
-    --font-color: #141140;
+    --font: #141140;
 
     /* Status */
     --ongoing: #27cadd;
@@ -22,7 +22,7 @@
 
 body
 {
-    color: var(--font-color);
+    color: var(--font);
     background-color: var(--navy);
 }
 
