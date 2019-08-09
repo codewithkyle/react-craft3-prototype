@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
+import { Sidebar } from './Sidebar';
+import { View } from './View';
+
 export class DashboardShell extends Component
 {
 	constructor(props:any = null)
@@ -13,8 +16,8 @@ export class DashboardShell extends Component
 	{
 		return(
 			<main className="t-dashboard">
-				<aside></aside>
-				<section></section>
+				<Sidebar></Sidebar>
+				<View></View>
 			</main>
 		);
 	}
