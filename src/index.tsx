@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 
 /** CSS */
-import './base.css';
-import './forms.css';
+import './base.scss';
+import './forms.scss';
 
 /** Components */
 import { LoginForm } from './LoginForm';

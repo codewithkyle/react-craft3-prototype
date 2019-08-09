@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: false
         uriFormat: null
         template: null
-dateModified: 1565357126
+dateModified: 1565388726
 email:
   fromEmail: kylea@page.works
   fromName: 'React Craft Demo'
@@ -121,6 +121,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.1.1
+  element-api:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 sections:
   406866aa-9a7c-42c0-b9f3-94cc3ed41fc6:
     name: Courses
