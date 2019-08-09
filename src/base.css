@@ -1,0 +1,73 @@
+:root
+{
+    /* Colour Pallet */
+    --navy: #172951;
+    --primary: #ffa36a;
+
+    /* Shades */
+    --off-white: #f9faff;
+    --white: #fff;
+
+    /* Font */
+    --font-color: #141140;
+
+    /* Status */
+    --ongoing: #27cadd;
+    --completed: #4e9ad6;
+
+    /* Actions */
+    --continue: #06d664;
+    --claim: #00acce;
+}
+
+body
+{
+    color: var(--font-color);
+    background-color: var(--navy);
+}
+
+main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.t-login
+{
+    background-color: var(--off-white);
+    border-radius: 1rem;
+    width: 420px;
+    padding: 2rem;
+}
+
+.t-login form
+{
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+}
+
+.t-login form input
+{
+    border: 2px solid rgba(23, 41, 81, 0.3);
+    height: 48px;
+    line-height: 48px;
+    padding: 14px 16px 12px 16px;
+}
+
+.t-login form button
+{
+    height: 36px;
+    line-height: 32px;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 0 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+}
