@@ -1,0 +1,32 @@
+email:
+  fromEmail: kylea@page.works
+  fromName: 'React Craft Demo'
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  e04df05e-a971-4660-b135-fd254709453a:
+    name: Common
+siteGroups:
+  687dcffb-f484-4557-9bde-d1d85efb4911:
+    name: 'React Craft Demo'
+sites:
+  0331d7ad-d2fe-421d-ae57-64791ca2a539:
+    baseUrl: $DEFAULT_SITE_URL
+    handle: default
+    hasUrls: true
+    language: en-US
+    name: 'React Craft Demo'
+    primary: true
+    siteGroup: 687dcffb-f484-4557-9bde-d1d85efb4911
+    sortOrder: 1
+system:
+  edition: solo
+  name: 'React Craft Demo'
+  live: true
+  schemaVersion: 3.2.16
+  timeZone: America/Los_Angeles
+users:
+  requireEmailVerification: true
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoVolumeUid: null
+  photoSubpath: ''
