@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.22)
 # Database: craft_react-demo
-# Generation Time: 2019-08-09 01:24:34 +0000
+# Generation Time: 2019-08-09 13:26:30 +0000
 # ************************************************************
 
 
@@ -258,6 +258,7 @@ CREATE TABLE `content` (
   `field_duration` text,
   `field_description` text,
   `field_points` int(10) DEFAULT NULL,
+  `field_sessionToken` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `content_elementId_siteId_unq_idx` (`elementId`,`siteId`),
   KEY `content_siteId_idx` (`siteId`),
@@ -269,44 +270,46 @@ CREATE TABLE `content` (
 LOCK TABLES `content` WRITE;
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
 
-INSERT INTO `content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `dateUpdated`, `uid`, `field_duration`, `field_description`, `field_points`)
+INSERT INTO `content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `dateUpdated`, `uid`, `field_duration`, `field_description`, `field_points`, `field_sessionToken`)
 VALUES
-	(1,1,1,NULL,'2019-08-09 00:01:35','2019-08-09 00:01:35','f32e03f1-c536-4d85-a2d6-30b26ccd9711',NULL,NULL,NULL),
-	(2,2,1,'User Interface Design','2019-08-09 01:11:53','2019-08-09 01:11:53','ae17f4f1-1a41-47b6-8512-725ccb70bd96',NULL,NULL,NULL),
-	(3,3,1,'User Experience Design','2019-08-09 01:12:02','2019-08-09 01:12:02','77b58c0e-d2e5-4fea-a470-1443b5ac92e7',NULL,NULL,NULL),
-	(4,4,1,'3D Animation','2019-08-09 01:12:10','2019-08-09 01:12:10','d88f642d-6b79-47e5-a1e6-f2d0ea08a5fc',NULL,NULL,NULL),
-	(5,5,1,'React JS','2019-08-09 01:12:18','2019-08-09 01:12:18','af13ccd2-7ed1-45f6-b195-f5a7e8246013',NULL,NULL,NULL),
-	(6,6,1,'Illustration','2019-08-09 01:12:25','2019-08-09 01:12:25','de31b7bd-9900-4421-a693-63e77ff4f609',NULL,NULL,NULL),
-	(7,7,1,'Icon Design','2019-08-09 01:12:32','2019-08-09 01:12:32','d166ac61-b83e-47cf-be68-92db3818411c',NULL,NULL,NULL),
-	(8,8,1,'Digital Marketing','2019-08-09 01:12:39','2019-08-09 01:12:39','30206b00-7897-43bf-a431-39f3de7bd25e',NULL,NULL,NULL),
-	(9,9,1,'Branding','2019-08-09 01:12:46','2019-08-09 01:12:46','4c32e136-3c9f-4d2a-ae5b-7cb5079522ea',NULL,NULL,NULL),
-	(10,10,1,'Interior Design','2019-08-09 01:13:02','2019-08-09 01:13:02','49444c71-265e-41a8-baaa-98d9a0efa1e8',NULL,NULL,NULL),
-	(11,11,1,NULL,'2019-08-09 01:13:25','2019-08-09 01:13:25','7d01ebe6-7802-4aa2-9740-333fd1b36092',NULL,NULL,0),
-	(12,12,1,'Design','2019-08-09 01:13:46','2019-08-09 01:13:46','7414b862-1efb-4092-8487-eb23ca7319e0',NULL,NULL,NULL),
-	(13,13,1,'Animation','2019-08-09 01:13:53','2019-08-09 01:13:53','acdf6db2-64c8-452e-9808-d3a39e1741f5',NULL,NULL,NULL),
-	(14,14,1,'Development','2019-08-09 01:14:03','2019-08-09 01:14:03','8d106f29-2d6d-4b77-8582-81654e19fc26',NULL,NULL,NULL),
-	(15,15,1,'Marketing','2019-08-09 01:14:11','2019-08-09 01:14:11','e2da0e0e-1ba1-4786-9a18-c4094eb79614',NULL,NULL,NULL),
-	(17,17,1,'User Experience Design','2019-08-09 01:15:09','2019-08-09 01:15:14','1ddb5113-562e-43f5-af90-f1897e19a5ca','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100),
-	(18,18,1,'User Experience Design','2019-08-09 01:15:09','2019-08-09 01:15:09','d4792cff-55d8-4d6e-a0ae-6dfbef57f0b6','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100),
-	(19,19,1,'User Experience Design','2019-08-09 01:15:14','2019-08-09 01:15:14','a5ba4a79-98dc-4c54-afb6-dc3760b0f964','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100),
-	(21,21,1,'React JS','2019-08-09 01:15:45','2019-08-09 01:15:45','92f5f2f2-4e39-4a06-a9d4-2911971cf50d','1h 48m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',50),
-	(22,22,1,'React JS','2019-08-09 01:15:45','2019-08-09 01:15:45','e208edae-e557-4d43-a405-72cf1161078c','1h 48m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',50),
-	(24,24,1,'User Interface Design','2019-08-09 01:16:09','2019-08-09 01:16:09','eb9e6821-7bde-4917-9143-d36885a271e5','1h 10m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100),
-	(25,25,1,'User Interface Design','2019-08-09 01:16:09','2019-08-09 01:16:09','ad666e87-190b-4e39-8d90-ce9967b47846','1h 10m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100),
-	(27,27,1,'3D Animation','2019-08-09 01:16:29','2019-08-09 01:16:29','b5a5e9f4-2832-4945-9fae-4856e7d84c52','1h 30m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',75),
-	(28,28,1,'3D Animation','2019-08-09 01:16:29','2019-08-09 01:16:29','23dc59ec-3182-4525-8c08-9b65fce07764','1h 30m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',75),
-	(30,30,1,'Introduction to Adobe Illustrator','2019-08-09 01:17:25','2019-08-09 01:17:25','db161572-2f24-4fd2-ac4d-ec3e6cb4f545','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',35),
-	(31,31,1,'Introduction to Adobe Illustrator','2019-08-09 01:17:25','2019-08-09 01:17:25','4417dc1b-7c04-4468-8341-4655e56a415d','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',35),
-	(33,33,1,'Icon Design','2019-08-09 01:17:45','2019-08-09 01:17:45','27b933b9-7776-4c66-9954-849031ed3e8b','0h 47m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',15),
-	(34,34,1,'Icon Design','2019-08-09 01:17:45','2019-08-09 01:17:45','57484b78-2a38-4ffb-b498-854838b0a636','0h 47m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',15),
-	(36,36,1,'Digital Marketing','2019-08-09 01:18:04','2019-08-09 01:18:04','1f4788d9-837c-4e31-b8b9-fe441a7402f4','1h 00m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',50),
-	(37,37,1,'Digital Marketing','2019-08-09 01:18:04','2019-08-09 01:18:04','c1d6bff0-a7c6-45ad-a8be-daa93a199cf7','1h 00m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',50),
-	(39,39,1,'Design Thinking','2019-08-09 01:18:33','2019-08-09 01:18:33','316fc168-cb0b-4a93-87b4-2c57674dacdb','1h 09m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',20),
-	(40,40,1,'Design Thinking','2019-08-09 01:18:33','2019-08-09 01:18:33','10165eed-e5b6-47b4-8f9a-85cc6806b010','1h 09m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',20),
-	(42,42,1,'Personal Branding','2019-08-09 01:18:54','2019-08-09 01:18:54','7ba3be04-0b5a-4db7-be74-0d90174b8b3d','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',18),
-	(43,43,1,'Personal Branding','2019-08-09 01:18:54','2019-08-09 01:18:54','3d9c3e99-7884-41ad-97cb-8ff8a94f7b06','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',18),
-	(45,45,1,'Interior Design','2019-08-09 01:19:24','2019-08-09 01:19:24','45eab38e-39ad-41d1-b9f5-5403a37d23e7','2h 48m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',125),
-	(46,46,1,'Interior Design','2019-08-09 01:19:24','2019-08-09 01:19:24','fece79a0-4652-44fe-8f48-f49eb1feb680','2h 48m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',125);
+	(1,1,1,NULL,'2019-08-09 00:01:35','2019-08-09 11:52:52','f32e03f1-c536-4d85-a2d6-30b26ccd9711',NULL,NULL,NULL,'AxiFftlsn_jTEqINlbSsIZzFwtJ7AKdyyol3JDGrv82p4d8H9Dq0X8myaKu3nEMfdHn0ae9ByXTNko6Xbc1qwrWWnvEVPXDFvJi59Ql44zXiALVxloCDAMQfkxlU4V_QIhKXv4brYlHiS131uEWuTTFljCR0jN9HG-CGpCBrj63LhE38QMRh9IZSUqkE5Vx0kErwse-l5BWAxu2ftbXuP6-HHSquJG4E6WvSHrnIFEA2Hj4hP5MTxv9cXnTQk3aZlIW2uVLaw80pQw0pFUyY9GJ27h-rWuuolVvAQaz2nHjlp7WII3rgHP7aIEdj-PWEndC5aJ5Qhza1hF6Yg6V1LENBlV_WIKtCrvHvr1j_CaCNp67Jc1xJoNqgiJE_G9MBgWaERaPmtTCiJvYqMdhr50AnoNuxiltg2yozntk3mDlhI8VGOLWdd0KZ5NN6M_XqpbAeqyOWMr7PZmPPa482R_k2wc3Ll50xsfXJzeXepAb-1ExD1mAWR5sY5Ef-uCYyQ2trGXC8a5bMZQpNs-pA3u238eAwm5qaUxA_HkI2qJU='),
+	(2,2,1,'User Interface Design','2019-08-09 01:11:53','2019-08-09 01:11:53','ae17f4f1-1a41-47b6-8512-725ccb70bd96',NULL,NULL,NULL,NULL),
+	(3,3,1,'User Experience Design','2019-08-09 01:12:02','2019-08-09 01:12:02','77b58c0e-d2e5-4fea-a470-1443b5ac92e7',NULL,NULL,NULL,NULL),
+	(4,4,1,'3D Animation','2019-08-09 01:12:10','2019-08-09 01:12:10','d88f642d-6b79-47e5-a1e6-f2d0ea08a5fc',NULL,NULL,NULL,NULL),
+	(5,5,1,'React JS','2019-08-09 01:12:18','2019-08-09 01:12:18','af13ccd2-7ed1-45f6-b195-f5a7e8246013',NULL,NULL,NULL,NULL),
+	(6,6,1,'Illustration','2019-08-09 01:12:25','2019-08-09 01:12:25','de31b7bd-9900-4421-a693-63e77ff4f609',NULL,NULL,NULL,NULL),
+	(7,7,1,'Icon Design','2019-08-09 01:12:32','2019-08-09 01:12:32','d166ac61-b83e-47cf-be68-92db3818411c',NULL,NULL,NULL,NULL),
+	(8,8,1,'Digital Marketing','2019-08-09 01:12:39','2019-08-09 01:12:39','30206b00-7897-43bf-a431-39f3de7bd25e',NULL,NULL,NULL,NULL),
+	(9,9,1,'Branding','2019-08-09 01:12:46','2019-08-09 01:12:46','4c32e136-3c9f-4d2a-ae5b-7cb5079522ea',NULL,NULL,NULL,NULL),
+	(10,10,1,'Interior Design','2019-08-09 01:13:02','2019-08-09 01:13:02','49444c71-265e-41a8-baaa-98d9a0efa1e8',NULL,NULL,NULL,NULL),
+	(11,11,1,NULL,'2019-08-09 01:13:25','2019-08-09 01:13:25','7d01ebe6-7802-4aa2-9740-333fd1b36092',NULL,NULL,0,NULL),
+	(12,12,1,'Design','2019-08-09 01:13:46','2019-08-09 01:13:46','7414b862-1efb-4092-8487-eb23ca7319e0',NULL,NULL,NULL,NULL),
+	(13,13,1,'Animation','2019-08-09 01:13:53','2019-08-09 01:13:53','acdf6db2-64c8-452e-9808-d3a39e1741f5',NULL,NULL,NULL,NULL),
+	(14,14,1,'Development','2019-08-09 01:14:03','2019-08-09 01:14:03','8d106f29-2d6d-4b77-8582-81654e19fc26',NULL,NULL,NULL,NULL),
+	(15,15,1,'Marketing','2019-08-09 01:14:11','2019-08-09 01:14:11','e2da0e0e-1ba1-4786-9a18-c4094eb79614',NULL,NULL,NULL,NULL),
+	(17,17,1,'User Experience Design','2019-08-09 01:15:09','2019-08-09 01:15:14','1ddb5113-562e-43f5-af90-f1897e19a5ca','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100,NULL),
+	(18,18,1,'User Experience Design','2019-08-09 01:15:09','2019-08-09 01:15:09','d4792cff-55d8-4d6e-a0ae-6dfbef57f0b6','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100,NULL),
+	(19,19,1,'User Experience Design','2019-08-09 01:15:14','2019-08-09 01:15:14','a5ba4a79-98dc-4c54-afb6-dc3760b0f964','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100,NULL),
+	(21,21,1,'React JS','2019-08-09 01:15:45','2019-08-09 01:15:45','92f5f2f2-4e39-4a06-a9d4-2911971cf50d','1h 48m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',50,NULL),
+	(22,22,1,'React JS','2019-08-09 01:15:45','2019-08-09 01:15:45','e208edae-e557-4d43-a405-72cf1161078c','1h 48m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',50,NULL),
+	(24,24,1,'User Interface Design','2019-08-09 01:16:09','2019-08-09 01:16:09','eb9e6821-7bde-4917-9143-d36885a271e5','1h 10m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100,NULL),
+	(25,25,1,'User Interface Design','2019-08-09 01:16:09','2019-08-09 01:16:09','ad666e87-190b-4e39-8d90-ce9967b47846','1h 10m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',100,NULL),
+	(27,27,1,'3D Animation','2019-08-09 01:16:29','2019-08-09 01:16:29','b5a5e9f4-2832-4945-9fae-4856e7d84c52','1h 30m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',75,NULL),
+	(28,28,1,'3D Animation','2019-08-09 01:16:29','2019-08-09 01:16:29','23dc59ec-3182-4525-8c08-9b65fce07764','1h 30m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',75,NULL),
+	(30,30,1,'Introduction to Adobe Illustrator','2019-08-09 01:17:25','2019-08-09 01:17:25','db161572-2f24-4fd2-ac4d-ec3e6cb4f545','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',35,NULL),
+	(31,31,1,'Introduction to Adobe Illustrator','2019-08-09 01:17:25','2019-08-09 01:17:25','4417dc1b-7c04-4468-8341-4655e56a415d','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',35,NULL),
+	(33,33,1,'Icon Design','2019-08-09 01:17:45','2019-08-09 01:17:45','27b933b9-7776-4c66-9954-849031ed3e8b','0h 47m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',15,NULL),
+	(34,34,1,'Icon Design','2019-08-09 01:17:45','2019-08-09 01:17:45','57484b78-2a38-4ffb-b498-854838b0a636','0h 47m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',15,NULL),
+	(36,36,1,'Digital Marketing','2019-08-09 01:18:04','2019-08-09 01:18:04','1f4788d9-837c-4e31-b8b9-fe441a7402f4','1h 00m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',50,NULL),
+	(37,37,1,'Digital Marketing','2019-08-09 01:18:04','2019-08-09 01:18:04','c1d6bff0-a7c6-45ad-a8be-daa93a199cf7','1h 00m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',50,NULL),
+	(39,39,1,'Design Thinking','2019-08-09 01:18:33','2019-08-09 01:18:33','316fc168-cb0b-4a93-87b4-2c57674dacdb','1h 09m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',20,NULL),
+	(40,40,1,'Design Thinking','2019-08-09 01:18:33','2019-08-09 01:18:33','10165eed-e5b6-47b4-8f9a-85cc6806b010','1h 09m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',20,NULL),
+	(42,42,1,'Personal Branding','2019-08-09 01:18:54','2019-08-09 01:18:54','7ba3be04-0b5a-4db7-be74-0d90174b8b3d','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',18,NULL),
+	(43,43,1,'Personal Branding','2019-08-09 01:18:54','2019-08-09 01:18:54','3d9c3e99-7884-41ad-97cb-8ff8a94f7b06','1h 20m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',18,NULL),
+	(45,45,1,'Interior Design','2019-08-09 01:19:24','2019-08-09 01:19:24','45eab38e-39ad-41d1-b9f5-5403a37d23e7','2h 48m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',125,NULL),
+	(46,46,1,'Interior Design','2019-08-09 01:19:24','2019-08-09 01:19:24','fece79a0-4652-44fe-8f48-f49eb1feb680','2h 48m','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',125,NULL),
+	(47,47,1,NULL,'2019-08-09 13:15:09','2019-08-09 13:24:23','11f4eb09-603b-455b-b049-94c8303f96e9',NULL,NULL,NULL,'2RY2VvlsmRg3hxrhipqzD9oh1371VlS2itqstPJOuTisANOnqtaIyQLDijqSiunmCWG2f88pUhYFh5e7ndnymbgmk6GyTPthGLqiYaYhVLqH7zT77HhMPzZ1a-u-9Q-J1XsQxau067DirhFhEQ2SvsuUolhkxXgpGG7zIPfyJVnE_5vI2HcPEzu2aUQO-nLJrhvD3N6J-U8RjJD26Pm8t6FRBLdVlWkOirpOMreJcVDBCkbvn1u-0KhigfRBa5-x1OJHG2462DSNpM2xdqPCjAX0bwI9yR79UwW-VrXD--tF6k27DLQMJfnFnePblCT3VcZpv8z_uNePfvvuCqe_j4VsWYdMqhlndWe38oKq6ZSojh_xldN5zlMu3pJUxxI2277fVZnYGS4OVRZcj4iXPb_hHiTzmIXahIGDaFV6PeDagKabFDCMGXFSXp9MhbN_KIuw3Ie3EWVdVtwAKGWvHJboZ_froq3LNjW9o9K_r4qB2GdC_WH8PWT-zj9z1KY6E7h_KIf-MpGSkS_UwzA7quu9jgFeJlCMW_vLhYASkKfaSg=='),
+	(48,48,1,NULL,'2019-08-09 13:24:46','2019-08-09 13:24:46','d8cfa8dc-4f23-4e25-83fe-ba9ed85bfcdd',NULL,NULL,NULL,'ksexszYTNN4R_gREe2S0TCoOTrmEo4z95ZPSJLa7MY6F_K6ugH9jIfTz-vtBdgPqfJhPFiwN0XVzeyyU4tXllq_UpmjFi2m60Ijt-doxAng=');
 
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -437,7 +440,7 @@ LOCK TABLES `elements` WRITE;
 
 INSERT INTO `elements` (`id`, `draftId`, `revisionId`, `fieldLayoutId`, `type`, `enabled`, `archived`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,NULL,NULL,NULL,'craft\\elements\\User',1,0,'2019-08-09 00:01:35','2019-08-09 00:01:35',NULL,'ec48e4db-5c80-4014-ba12-6f9d8a0f02ec'),
+	(1,NULL,NULL,2,'craft\\elements\\User',1,0,'2019-08-09 00:01:35','2019-08-09 11:52:52',NULL,'ec48e4db-5c80-4014-ba12-6f9d8a0f02ec'),
 	(2,NULL,NULL,NULL,'craft\\elements\\Category',1,0,'2019-08-09 01:11:53','2019-08-09 01:11:53','2019-08-09 01:13:39','d26f0c83-a5a7-4ef5-979f-0ea167e3e486'),
 	(3,NULL,NULL,NULL,'craft\\elements\\Category',1,0,'2019-08-09 01:12:02','2019-08-09 01:12:02','2019-08-09 01:13:39','2addd50e-4c48-4c06-a9e1-8c848fb819fd'),
 	(4,NULL,NULL,NULL,'craft\\elements\\Category',1,0,'2019-08-09 01:12:10','2019-08-09 01:12:10','2019-08-09 01:13:39','f988c067-917c-4a56-bfc2-4ab362c4a697'),
@@ -472,7 +475,9 @@ VALUES
 	(42,NULL,NULL,1,'craft\\elements\\Entry',1,0,'2019-08-09 01:18:33','2019-08-09 01:18:54',NULL,'f7ccdd18-2205-4810-844d-773484cda0d6'),
 	(43,NULL,10,1,'craft\\elements\\Entry',1,0,'2019-08-09 01:18:54','2019-08-09 01:18:54',NULL,'fec36362-7a25-4711-91bf-5f8a27671f51'),
 	(45,NULL,NULL,1,'craft\\elements\\Entry',1,0,'2019-08-09 01:18:54','2019-08-09 01:19:24',NULL,'ffeeedc6-df7f-4b18-abba-520a9e3d0a29'),
-	(46,NULL,11,1,'craft\\elements\\Entry',1,0,'2019-08-09 01:19:24','2019-08-09 01:19:24',NULL,'2f3c998d-7712-4de8-b480-282c047516da');
+	(46,NULL,11,1,'craft\\elements\\Entry',1,0,'2019-08-09 01:19:24','2019-08-09 01:19:24',NULL,'2f3c998d-7712-4de8-b480-282c047516da'),
+	(47,NULL,NULL,2,'craft\\elements\\User',1,0,'2019-08-09 13:15:09','2019-08-09 13:24:23','2019-08-09 13:25:46','881e62c2-3412-4ea3-97b5-b81c997f8a0b'),
+	(48,NULL,NULL,2,'craft\\elements\\User',1,0,'2019-08-09 13:24:46','2019-08-09 13:24:46','2019-08-09 13:25:46','25986561-cc25-40dd-b73b-8b5b1eda3f39');
 
 /*!40000 ALTER TABLE `elements` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -543,7 +548,9 @@ VALUES
 	(42,42,1,'personal-branding',NULL,1,'2019-08-09 01:18:54','2019-08-09 01:18:54','a0de74b0-8c89-40f3-a6c3-33935b2b4bb2'),
 	(43,43,1,'personal-branding',NULL,1,'2019-08-09 01:18:54','2019-08-09 01:18:54','24279d0c-7e4d-4489-8213-e4c749ed3f03'),
 	(45,45,1,'interior-design',NULL,1,'2019-08-09 01:19:24','2019-08-09 01:19:24','3b15ca31-1a84-4b67-abff-e8e63a7426eb'),
-	(46,46,1,'interior-design',NULL,1,'2019-08-09 01:19:24','2019-08-09 01:19:24','9ae1f834-cd54-4c37-9188-594f99377bd5');
+	(46,46,1,'interior-design',NULL,1,'2019-08-09 01:19:24','2019-08-09 01:19:24','9ae1f834-cd54-4c37-9188-594f99377bd5'),
+	(47,47,1,NULL,NULL,1,'2019-08-09 13:15:09','2019-08-09 13:15:09','eefffda0-3bb7-4d31-8a2a-5ee17e8ce8ea'),
+	(48,48,1,NULL,NULL,1,'2019-08-09 13:24:46','2019-08-09 13:24:46','66707998-ba8c-4a93-b80f-f73dee3414cd');
 
 /*!40000 ALTER TABLE `elements_sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -673,7 +680,8 @@ LOCK TABLES `fieldgroups` WRITE;
 INSERT INTO `fieldgroups` (`id`, `name`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(1,'Common','2019-08-09 00:01:35','2019-08-09 00:01:35','e04df05e-a971-4660-b135-fd254709453a'),
-	(2,'Courses','2019-08-09 01:04:52','2019-08-09 01:04:52','abc90887-377d-4118-bdf0-679bf307798a');
+	(2,'Courses','2019-08-09 01:04:52','2019-08-09 01:04:52','abc90887-377d-4118-bdf0-679bf307798a'),
+	(3,'Users','2019-08-09 04:17:00','2019-08-09 04:17:00','798e7478-3b13-49c4-adfa-028454077ca0');
 
 /*!40000 ALTER TABLE `fieldgroups` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -712,7 +720,8 @@ VALUES
 	(1,1,1,2,1,1,'2019-08-09 01:11:41','2019-08-09 01:11:41','b7693553-0edd-41d2-9ada-92b2b24c14a6'),
 	(2,1,1,4,1,2,'2019-08-09 01:11:41','2019-08-09 01:11:41','943ac4ce-6cb2-4130-8a28-a53f830949b0'),
 	(3,1,1,1,1,3,'2019-08-09 01:11:41','2019-08-09 01:11:41','c61d9d4b-e9cb-49b1-94e6-da04498f98c3'),
-	(4,1,1,3,1,4,'2019-08-09 01:11:41','2019-08-09 01:11:41','be2160b5-5e7b-4244-bd1a-de7572b7fa4a');
+	(4,1,1,3,1,4,'2019-08-09 01:11:41','2019-08-09 01:11:41','be2160b5-5e7b-4244-bd1a-de7572b7fa4a'),
+	(5,2,2,5,0,1,'2019-08-09 04:20:32','2019-08-09 04:20:32','38e0acc4-4842-4eb3-af99-25599181ea00');
 
 /*!40000 ALTER TABLE `fieldlayoutfields` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -740,7 +749,8 @@ LOCK TABLES `fieldlayouts` WRITE;
 
 INSERT INTO `fieldlayouts` (`id`, `type`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,'craft\\elements\\Entry','2019-08-09 01:11:41','2019-08-09 01:11:41',NULL,'e56644ab-6fda-4b23-aa46-7583f0ead9b1');
+	(1,'craft\\elements\\Entry','2019-08-09 01:11:41','2019-08-09 01:11:41',NULL,'e56644ab-6fda-4b23-aa46-7583f0ead9b1'),
+	(2,'craft\\elements\\User','2019-08-09 04:20:32','2019-08-09 04:20:32',NULL,'d9505e4d-ef2d-4bfe-b32e-e159fa8195d3');
 
 /*!40000 ALTER TABLE `fieldlayouts` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -770,7 +780,8 @@ LOCK TABLES `fieldlayouttabs` WRITE;
 
 INSERT INTO `fieldlayouttabs` (`id`, `layoutId`, `name`, `sortOrder`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,'Course Details',1,'2019-08-09 01:11:41','2019-08-09 01:11:41','84358da9-2e6c-4b88-b119-9b7734f857fd');
+	(1,1,'Course Details',1,'2019-08-09 01:11:41','2019-08-09 01:11:41','84358da9-2e6c-4b88-b119-9b7734f857fd'),
+	(2,2,'Admin',1,'2019-08-09 04:20:32','2019-08-09 04:20:32','529ed211-ad9f-461d-ba5d-190602e406d2');
 
 /*!40000 ALTER TABLE `fieldlayouttabs` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -811,7 +822,8 @@ VALUES
 	(1,2,'Duration','duration','global','Display as number of hours and number of minutes. Ex: 0h 32m or 1h 00m',0,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"1\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"10\",\"columnType\":\"text\"}','2019-08-09 01:08:30','2019-08-09 01:08:30','95c61ac9-e37a-4c61-8a17-9d7ec100f182'),
 	(2,2,'Description','description','global','Provide a brief description of the course.',1,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"4\",\"charLimit\":\"500\",\"columnType\":\"text\"}','2019-08-09 01:09:17','2019-08-09 01:09:17','175f369a-1d32-43c7-b42c-acfe87962d1f'),
 	(3,2,'Points','points','global','',0,'none',NULL,'craft\\fields\\Number','{\"defaultValue\":\"0\",\"min\":\"0\",\"max\":null,\"decimals\":0,\"size\":null,\"prefix\":\"\",\"suffix\":\"pt\"}','2019-08-09 01:09:50','2019-08-09 01:09:50','c39304ce-56e7-4782-849e-8edb2ca268e1'),
-	(4,2,'Category','category','global','',0,'site',NULL,'craft\\fields\\Categories','{\"allowLimit\":false,\"allowMultipleSources\":false,\"branchLimit\":\"1\",\"sources\":\"*\",\"source\":\"group:7a0bc2f7-91c7-4c92-b0f0-a3383a06a2b0\",\"targetSiteId\":null,\"viewMode\":null,\"limit\":null,\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"1\"}','2019-08-09 01:10:57','2019-08-09 01:10:57','32a1307d-aae2-4936-b9bf-3ff48f4889e8');
+	(4,2,'Category','category','global','',0,'site',NULL,'craft\\fields\\Categories','{\"allowLimit\":false,\"allowMultipleSources\":false,\"branchLimit\":\"1\",\"sources\":\"*\",\"source\":\"group:7a0bc2f7-91c7-4c92-b0f0-a3383a06a2b0\",\"targetSiteId\":null,\"viewMode\":null,\"limit\":null,\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"1\"}','2019-08-09 01:10:57','2019-08-09 01:10:57','32a1307d-aae2-4936-b9bf-3ff48f4889e8'),
+	(5,3,'Session Token','sessionToken','global','',0,'none',NULL,'mmikkel\\incognitofield\\fields\\IncognitoFieldType','{\"mode\":\"hidden\",\"modeOverride\":\"\",\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}','2019-08-09 04:20:15','2019-08-09 04:29:15','5d952193-0965-49ee-a0fc-babfd1263a10');
 
 /*!40000 ALTER TABLE `fields` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -864,7 +876,7 @@ LOCK TABLES `info` WRITE;
 
 INSERT INTO `info` (`id`, `version`, `schemaVersion`, `maintenance`, `config`, `configMap`, `fieldVersion`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'3.2.9','3.2.16',0,'{\"categoryGroups\":{\"7a0bc2f7-91c7-4c92-b0f0-a3383a06a2b0\":{\"name\":\"Course Types\",\"handle\":\"courseTypes\",\"structure\":{\"uid\":\"d8ea95b5-bcb3-44e7-b258-bf4a1b697a36\",\"maxLevels\":1},\"siteSettings\":{\"0331d7ad-d2fe-421d-ae57-64791ca2a539\":{\"hasUrls\":false,\"uriFormat\":null,\"template\":null}}}},\"dateModified\":1565313641,\"email\":{\"fromEmail\":\"kylea@page.works\",\"fromName\":\"React Craft Demo\",\"transportType\":\"craft\\\\mail\\\\transportadapters\\\\Sendmail\"},\"fieldGroups\":{\"abc90887-377d-4118-bdf0-679bf307798a\":{\"name\":\"Courses\"},\"e04df05e-a971-4660-b135-fd254709453a\":{\"name\":\"Common\"}},\"fields\":{\"175f369a-1d32-43c7-b42c-acfe87962d1f\":{\"name\":\"Description\",\"handle\":\"description\",\"instructions\":\"Provide a brief description of the course.\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"4\",\"charLimit\":\"500\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"abc90887-377d-4118-bdf0-679bf307798a\"},\"32a1307d-aae2-4936-b9bf-3ff48f4889e8\":{\"name\":\"Category\",\"handle\":\"category\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Categories\",\"settings\":{\"allowLimit\":false,\"allowMultipleSources\":false,\"branchLimit\":\"1\",\"sources\":\"*\",\"source\":\"group:7a0bc2f7-91c7-4c92-b0f0-a3383a06a2b0\",\"targetSiteId\":null,\"viewMode\":null,\"limit\":null,\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"1\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"abc90887-377d-4118-bdf0-679bf307798a\"},\"95c61ac9-e37a-4c61-8a17-9d7ec100f182\":{\"name\":\"Duration\",\"handle\":\"duration\",\"instructions\":\"Display as number of hours and number of minutes. Ex: 0h 32m or 1h 00m\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"1\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"10\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"abc90887-377d-4118-bdf0-679bf307798a\"},\"c39304ce-56e7-4782-849e-8edb2ca268e1\":{\"name\":\"Points\",\"handle\":\"points\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Number\",\"settings\":{\"defaultValue\":\"0\",\"min\":\"0\",\"max\":null,\"decimals\":0,\"size\":null,\"prefix\":\"\",\"suffix\":\"pt\"},\"contentColumnType\":\"integer(10)\",\"fieldGroup\":\"abc90887-377d-4118-bdf0-679bf307798a\"}},\"sections\":{\"406866aa-9a7c-42c0-b9f3-94cc3ed41fc6\":{\"name\":\"Courses\",\"handle\":\"courses\",\"type\":\"channel\",\"enableVersioning\":true,\"propagationMethod\":\"all\",\"siteSettings\":{\"0331d7ad-d2fe-421d-ae57-64791ca2a539\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"entryTypes\":{\"fa816d56-cd8d-4350-8d4c-56b8b14038d5\":{\"name\":\"Courses\",\"handle\":\"courses\",\"hasTitleField\":true,\"titleLabel\":\"Name\",\"titleFormat\":\"\",\"sortOrder\":1,\"fieldLayouts\":{\"e56644ab-6fda-4b23-aa46-7583f0ead9b1\":{\"tabs\":[{\"name\":\"Course Details\",\"sortOrder\":1,\"fields\":{\"175f369a-1d32-43c7-b42c-acfe87962d1f\":{\"required\":true,\"sortOrder\":1},\"32a1307d-aae2-4936-b9bf-3ff48f4889e8\":{\"required\":true,\"sortOrder\":2},\"95c61ac9-e37a-4c61-8a17-9d7ec100f182\":{\"required\":true,\"sortOrder\":3},\"c39304ce-56e7-4782-849e-8edb2ca268e1\":{\"required\":true,\"sortOrder\":4}}}]}}}}}},\"siteGroups\":{\"687dcffb-f484-4557-9bde-d1d85efb4911\":{\"name\":\"React Craft Demo\"}},\"sites\":{\"0331d7ad-d2fe-421d-ae57-64791ca2a539\":{\"baseUrl\":\"$DEFAULT_SITE_URL\",\"handle\":\"default\",\"hasUrls\":true,\"language\":\"en-US\",\"name\":\"React Craft Demo\",\"primary\":true,\"siteGroup\":\"687dcffb-f484-4557-9bde-d1d85efb4911\",\"sortOrder\":1}},\"system\":{\"edition\":\"pro\",\"name\":\"React Craft Demo\",\"live\":true,\"schemaVersion\":\"3.2.16\",\"timeZone\":\"America/Los_Angeles\"},\"users\":{\"requireEmailVerification\":true,\"allowPublicRegistration\":true,\"defaultGroup\":\"\",\"photoVolumeUid\":null,\"photoSubpath\":null}}','{\"dateModified\":\"@config/project.yaml\",\"email\":\"@config/project.yaml\",\"fieldGroups\":\"@config/project.yaml\",\"fields\":\"@config/project.yaml\",\"sections\":\"@config/project.yaml\",\"siteGroups\":\"@config/project.yaml\",\"sites\":\"@config/project.yaml\",\"system\":\"@config/project.yaml\",\"users\":\"@config/project.yaml\",\"categoryGroups\":\"@config/project.yaml\"}','yj9Fs3VQGiJL','2019-08-09 00:01:35','2019-08-09 00:01:35','af6c56cd-cf19-4c81-a67e-6b8940a4b543');
+	(1,'3.2.9','3.2.16',0,'{\"categoryGroups\":{\"7a0bc2f7-91c7-4c92-b0f0-a3383a06a2b0\":{\"name\":\"Course Types\",\"handle\":\"courseTypes\",\"structure\":{\"uid\":\"d8ea95b5-bcb3-44e7-b258-bf4a1b697a36\",\"maxLevels\":1},\"siteSettings\":{\"0331d7ad-d2fe-421d-ae57-64791ca2a539\":{\"hasUrls\":false,\"uriFormat\":null,\"template\":null}}}},\"dateModified\":1565357126,\"email\":{\"fromEmail\":\"kylea@page.works\",\"fromName\":\"React Craft Demo\",\"transportType\":\"craft\\\\mail\\\\transportadapters\\\\Sendmail\"},\"fieldGroups\":{\"798e7478-3b13-49c4-adfa-028454077ca0\":{\"name\":\"Users\"},\"abc90887-377d-4118-bdf0-679bf307798a\":{\"name\":\"Courses\"},\"e04df05e-a971-4660-b135-fd254709453a\":{\"name\":\"Common\"}},\"fields\":{\"175f369a-1d32-43c7-b42c-acfe87962d1f\":{\"name\":\"Description\",\"handle\":\"description\",\"instructions\":\"Provide a brief description of the course.\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"4\",\"charLimit\":\"500\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"abc90887-377d-4118-bdf0-679bf307798a\"},\"32a1307d-aae2-4936-b9bf-3ff48f4889e8\":{\"name\":\"Category\",\"handle\":\"category\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Categories\",\"settings\":{\"allowLimit\":false,\"allowMultipleSources\":false,\"branchLimit\":\"1\",\"sources\":\"*\",\"source\":\"group:7a0bc2f7-91c7-4c92-b0f0-a3383a06a2b0\",\"targetSiteId\":null,\"viewMode\":null,\"limit\":null,\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"1\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"abc90887-377d-4118-bdf0-679bf307798a\"},\"5d952193-0965-49ee-a0fc-babfd1263a10\":{\"name\":\"Session Token\",\"handle\":\"sessionToken\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"mmikkel\\\\incognitofield\\\\fields\\\\IncognitoFieldType\",\"settings\":{\"mode\":\"hidden\",\"modeOverride\":\"\",\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"798e7478-3b13-49c4-adfa-028454077ca0\"},\"95c61ac9-e37a-4c61-8a17-9d7ec100f182\":{\"name\":\"Duration\",\"handle\":\"duration\",\"instructions\":\"Display as number of hours and number of minutes. Ex: 0h 32m or 1h 00m\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"1\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"10\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"abc90887-377d-4118-bdf0-679bf307798a\"},\"c39304ce-56e7-4782-849e-8edb2ca268e1\":{\"name\":\"Points\",\"handle\":\"points\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Number\",\"settings\":{\"defaultValue\":\"0\",\"min\":\"0\",\"max\":null,\"decimals\":0,\"size\":null,\"prefix\":\"\",\"suffix\":\"pt\"},\"contentColumnType\":\"integer(10)\",\"fieldGroup\":\"abc90887-377d-4118-bdf0-679bf307798a\"}},\"plugins\":{\"incognito-field\":{\"edition\":\"standard\",\"enabled\":true,\"schemaVersion\":\"1.1.1\"}},\"sections\":{\"406866aa-9a7c-42c0-b9f3-94cc3ed41fc6\":{\"name\":\"Courses\",\"handle\":\"courses\",\"type\":\"channel\",\"enableVersioning\":true,\"propagationMethod\":\"all\",\"siteSettings\":{\"0331d7ad-d2fe-421d-ae57-64791ca2a539\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"entryTypes\":{\"fa816d56-cd8d-4350-8d4c-56b8b14038d5\":{\"name\":\"Courses\",\"handle\":\"courses\",\"hasTitleField\":true,\"titleLabel\":\"Name\",\"titleFormat\":\"\",\"sortOrder\":1,\"fieldLayouts\":{\"e56644ab-6fda-4b23-aa46-7583f0ead9b1\":{\"tabs\":[{\"name\":\"Course Details\",\"sortOrder\":1,\"fields\":{\"175f369a-1d32-43c7-b42c-acfe87962d1f\":{\"required\":true,\"sortOrder\":1},\"32a1307d-aae2-4936-b9bf-3ff48f4889e8\":{\"required\":true,\"sortOrder\":2},\"95c61ac9-e37a-4c61-8a17-9d7ec100f182\":{\"required\":true,\"sortOrder\":3},\"c39304ce-56e7-4782-849e-8edb2ca268e1\":{\"required\":true,\"sortOrder\":4}}}]}}}}}},\"siteGroups\":{\"687dcffb-f484-4557-9bde-d1d85efb4911\":{\"name\":\"React Craft Demo\"}},\"sites\":{\"0331d7ad-d2fe-421d-ae57-64791ca2a539\":{\"baseUrl\":\"$DEFAULT_SITE_URL\",\"handle\":\"default\",\"hasUrls\":true,\"language\":\"en-US\",\"name\":\"React Craft Demo\",\"primary\":true,\"siteGroup\":\"687dcffb-f484-4557-9bde-d1d85efb4911\",\"sortOrder\":1}},\"system\":{\"edition\":\"pro\",\"name\":\"React Craft Demo\",\"live\":true,\"schemaVersion\":\"3.2.16\",\"timeZone\":\"America/Los_Angeles\"},\"users\":{\"requireEmailVerification\":false,\"allowPublicRegistration\":true,\"defaultGroup\":\"\",\"photoVolumeUid\":null,\"photoSubpath\":null,\"fieldLayouts\":{\"d9505e4d-ef2d-4bfe-b32e-e159fa8195d3\":{\"tabs\":[{\"name\":\"Admin\",\"sortOrder\":1,\"fields\":{\"5d952193-0965-49ee-a0fc-babfd1263a10\":{\"required\":false,\"sortOrder\":1}}}]}}}}','{\"categoryGroups\":\"@config/project.yaml\",\"dateModified\":\"@config/project.yaml\",\"email\":\"@config/project.yaml\",\"fieldGroups\":\"@config/project.yaml\",\"fields\":\"@config/project.yaml\",\"sections\":\"@config/project.yaml\",\"siteGroups\":\"@config/project.yaml\",\"sites\":\"@config/project.yaml\",\"system\":\"@config/project.yaml\",\"users\":\"@config/project.yaml\",\"plugins\":\"@config/project.yaml\"}','r0QiGYiDDaJC','2019-08-09 00:01:35','2019-08-09 00:01:35','af6c56cd-cf19-4c81-a67e-6b8940a4b543');
 
 /*!40000 ALTER TABLE `info` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1100,7 +1112,8 @@ VALUES
 	(149,NULL,'app','m190624_234204_matrix_propagation_method','2019-08-09 00:01:37','2019-08-09 00:01:37','2019-08-09 00:01:37','6f8bc9fc-527a-4227-8d5f-e376819840f6'),
 	(150,NULL,'app','m190711_153020_drop_snapshots','2019-08-09 00:01:37','2019-08-09 00:01:37','2019-08-09 00:01:37','3a2eb730-eff2-453f-917f-99d6d217bf19'),
 	(151,NULL,'app','m190712_195914_no_draft_revisions','2019-08-09 00:01:37','2019-08-09 00:01:37','2019-08-09 00:01:37','d59a805e-9755-448f-868a-18284913a793'),
-	(152,NULL,'app','m190723_140314_fix_preview_targets_column','2019-08-09 00:01:37','2019-08-09 00:01:37','2019-08-09 00:01:37','b6d9b87b-1f2b-45a9-85fe-0126d49dd011');
+	(152,NULL,'app','m190723_140314_fix_preview_targets_column','2019-08-09 00:01:37','2019-08-09 00:01:37','2019-08-09 00:01:37','b6d9b87b-1f2b-45a9-85fe-0126d49dd011'),
+	(153,1,'plugin','m190226_225231_craft3','2019-08-09 04:18:33','2019-08-09 04:18:33','2019-08-09 04:18:33','9b61f620-2906-418f-ba9f-63c6dff8a3d2');
 
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1126,6 +1139,15 @@ CREATE TABLE `plugins` (
   UNIQUE KEY `plugins_handle_unq_idx` (`handle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `plugins` WRITE;
+/*!40000 ALTER TABLE `plugins` DISABLE KEYS */;
+
+INSERT INTO `plugins` (`id`, `handle`, `version`, `schemaVersion`, `licenseKeyStatus`, `licensedEdition`, `installDate`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,'incognito-field','1.1.1.1','1.1.1','unknown',NULL,'2019-08-09 04:18:33','2019-08-09 04:18:33','2019-08-09 13:25:27','5abb70b2-6523-401b-b0fb-34b0b4711145');
+
+/*!40000 ALTER TABLE `plugins` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table queue
@@ -1231,34 +1253,51 @@ INSERT INTO `resourcepaths` (`hash`, `path`)
 VALUES
 	('17314154','@lib/velocity'),
 	('1b2e3770','@app/web/assets/feed/dist'),
+	('1eaa1676','@app/web/assets/userpermissions/dist'),
+	('22eb06cd','@modules/prototypemodule/assetbundles/prototypemodule/dist'),
+	('23c1b674','@craft/web/assets/dashboard/dist'),
 	('25fa1888','@app/web/assets/editcategory/dist'),
 	('292e1ddc','@lib/element-resize-detector'),
 	('2ae4631f','@app/web/assets/matrixsettings/dist'),
+	('38c6b507','@craft/web/assets/edituser/dist'),
+	('3c0b5518','@craft/web/assets/matrixsettings/dist'),
 	('3e9477d1','@lib'),
 	('41c2192d','@app/web/assets/updateswidget/dist'),
 	('4f50b5ec','@app/web/assets/craftsupport/dist'),
 	('5566753c','@app/web/assets/generalsettings/dist'),
 	('5998daf1','@lib/jquery-ui'),
+	('5a8290bf','@craft/web/assets/feed/dist'),
 	('62357cce','@app/web/assets/cp/dist'),
+	('6597adfb','@craft/web/assets/craftsupport/dist'),
 	('660b69b0','@app/web/assets/login/dist'),
 	('6beb629','@bower/jquery/dist'),
+	('6d911a36','@craft/web/assets/login/dist'),
 	('790d31e5','@app/web/assets/pluginstore/dist'),
 	('7f785b43','@app/web/assets/recententries/dist'),
+	('80d86ce3','@craft/web/assets/userpermissions/dist'),
 	('819ef082','@app/web/assets/editentry/dist'),
 	('84b1aaff','@lib/d3'),
 	('8a148aae','@lib/picturefill'),
+	('8a9d12df','@craft/web/assets/tablesettings/dist'),
 	('8db0b66c','@lib/jquery-touch-events'),
 	('92fc8b50','@lib/fileupload'),
 	('9645000','@app/web/assets/tablesettings/dist'),
 	('a1383282','@app/web/assets/dashboard/dist'),
 	('a24a6947','@lib/fabric'),
+	('a28fa0aa','@craft/web/assets/fields/dist'),
 	('a65f1ccc','@app/web/assets/fields/dist'),
 	('b16eebc','@lib/jquery.payment'),
 	('b70cbd79','@lib/garnishjs'),
+	('c23b5bf2','@craft/web/assets/updateswidget/dist'),
+	('c9b68251','@app/web/assets/edituser/dist'),
+	('d13eb21e','@craft/web/assets/pluginstore/dist'),
 	('d406e3a0','@lib/xregexp'),
+	('d8458263','@craft/web/assets/cp/dist'),
 	('de6aa72a','@lib/selectize'),
 	('e3f37f91','@app/web/assets/plugins/dist'),
-	('ebf9bbd5','@lib/timepicker');
+	('ebf9bbd5','@lib/timepicker'),
+	('f5425fc3','@craft/web/assets/updater/dist'),
+	('fc81199c','@craft/web/assets/recententries/dist');
 
 /*!40000 ALTER TABLE `resourcepaths` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1324,9 +1363,9 @@ LOCK TABLES `searchindex` WRITE;
 INSERT INTO `searchindex` (`elementId`, `attribute`, `fieldId`, `siteId`, `keywords`)
 VALUES
 	(1,'username',0,1,' pageworks '),
-	(1,'firstname',0,1,''),
+	(1,'firstname',0,1,' kyle andrews '),
 	(1,'lastname',0,1,''),
-	(1,'fullname',0,1,''),
+	(1,'fullname',0,1,' kyle andrews '),
 	(1,'email',0,1,' kylea page works '),
 	(1,'slug',0,1,''),
 	(2,'slug',0,1,' user interface design '),
@@ -1384,7 +1423,19 @@ VALUES
 	(42,'field',2,1,' lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum '),
 	(45,'slug',0,1,' interior design '),
 	(45,'title',0,1,' interior design '),
-	(45,'field',2,1,' lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum ');
+	(45,'field',2,1,' lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum '),
+	(47,'username',0,1,' test example com '),
+	(47,'firstname',0,1,''),
+	(47,'lastname',0,1,''),
+	(47,'fullname',0,1,''),
+	(47,'email',0,1,' test example com '),
+	(47,'slug',0,1,''),
+	(48,'username',0,1,' test2 example com '),
+	(48,'firstname',0,1,' kyle andrews '),
+	(48,'lastname',0,1,''),
+	(48,'fullname',0,1,' kyle andrews '),
+	(48,'email',0,1,' test2 example com '),
+	(48,'slug',0,1,'');
 
 /*!40000 ALTER TABLE `searchindex` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1500,7 +1551,33 @@ LOCK TABLES `sessions` WRITE;
 INSERT INTO `sessions` (`id`, `userId`, `token`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(1,1,'cDu3A_JIVWddqrcMmLT1-m2bPcw-FhUajGLOWySbiSNTrAPd_4Pxu4YIQcals7l9MYlXCAH8aVHvskDrzUT0jj1aM-BMdYRlI3Gp','2019-08-09 00:01:37','2019-08-09 00:26:43','9a7e81a4-059f-476e-b0b7-a8c7a2b3bd08'),
-	(2,1,'xpfmRJaIwmFK1lo8sOPnWJt5C2bLxiiEJLbvAhZ07IYql4Qha40aPLQtAVGYOsTaqJQuPlfoL-yopKMFRagFAPE0JY0VFTsH7aiz','2019-08-09 01:03:59','2019-08-09 01:24:02','c004689a-5aa8-41ec-9c05-a213533c2ab8');
+	(2,1,'xpfmRJaIwmFK1lo8sOPnWJt5C2bLxiiEJLbvAhZ07IYql4Qha40aPLQtAVGYOsTaqJQuPlfoL-yopKMFRagFAPE0JY0VFTsH7aiz','2019-08-09 01:03:59','2019-08-09 02:53:13','c004689a-5aa8-41ec-9c05-a213533c2ab8'),
+	(3,1,'FY2BWWu3UQ7XW6t14i8rgwBDki8AvwVfuNeaZ4h1xsrpddqGaVRdp7u_ly2MzR312FvMZUyX7-4WvXgldoW8e5r2lWF_PoLsQrEB','2019-08-09 03:28:53','2019-08-09 03:28:53','8166eb2e-d50b-4593-9b2e-3c4874dc37f3'),
+	(4,1,'EeaZERAShVjxu6Y-o9irJ-THVxhQoRXdbRywmoupgO4EaUpsKI7_RyzGP-CooDgOjvJhcvdstCwG59VVUgLHrxeAEAE3SOMLLxgH','2019-08-09 03:29:30','2019-08-09 03:29:30','da5c0734-12c7-4b29-b7f4-94b448c0df32'),
+	(5,1,'kGWVaL6k5CqxKpQgVjzsIg08iw0hIK9rxcvozvXWcDufDeaDW8_m2u4NhuLV6CsfSN8DwFFyCXcUFw5iWInrPyfP_82gdQ5VruxL','2019-08-09 03:35:41','2019-08-09 03:35:41','55d9ef6a-029a-4375-a1ca-865871af236f'),
+	(6,1,'P7oVPcUNvULMJ5Gl7LE-r6zl5Up_yl-juHZdyP4sGmkGkvB5cP2Gm99k5BGlGW0cldgzzFzkrRYvENq4z8m40wP7YmtqbVH_8VSa','2019-08-09 03:36:05','2019-08-09 03:36:05','dad62201-c01b-4c89-9100-d28d72ae3ed8'),
+	(7,1,'Dk9vRXZ21xCSmVMb5hEEIGQXGoWycUHvRfQAnENgnt7Sq-V8gvseW7q6GeBlZR9exR5WryVyU_71_SbIq4lUo87_yg5UXypj8rS9','2019-08-09 03:38:33','2019-08-09 03:38:33','400fec03-59db-404e-b7e3-b849d82307a0'),
+	(8,1,'FGZAdatdrTw0ccUH0maqx6Bek4ARM2D5qtn_7stS9es91gQSzQJDGVmcNCUpFLghmHim-j1dk4ohIvH5zA1n2y3NbDS7jCYQwP4m','2019-08-09 03:38:55','2019-08-09 04:29:15','65ce531a-ef85-425f-a2b8-91d1457c411a'),
+	(9,1,'Ba_2rCXn0W4Z4ReRUeL2nzu9GlRTfF6g1jzNt-ZkCBXhdaftTwdWEaXmEI4FXnw3GC-Joh39q1CUKl3F_3IuvI5rMtjtD3ZpqZdo','2019-08-09 03:39:16','2019-08-09 03:39:16','be904ae9-c9ea-45a5-a56f-5aeb0fd33b96'),
+	(10,1,'vr_pblWTltHNQeuC3kpm5N5n-n03YO08DLFeimZT38DX6eji0tKuwTP_QZpHEPvHn80uxOMkVIctNNqsMHQvQH0RKlicgNJ6-KwX','2019-08-09 03:40:17','2019-08-09 03:40:17','d5f7ed19-bac5-43eb-b720-35b3ee6658c1'),
+	(11,1,'pdqAw9et22vWZ-kC27IZob_HkkEQJjtiqiO6J0zLRvCCuLcRxIPMWl80HmRaDNYR28_3-UhvzAWoCEbVwJxuRIzi2tPObiNKuYkU','2019-08-09 03:40:44','2019-08-09 03:40:44','645a03b4-2579-4c6e-9dc3-acd804b1eed9'),
+	(12,1,'Se9sEYR5m-ryTBiiO-Za55aOeKOuw3IEjBdoBIBuOE41cL8dEx2QyAvsV34PbzdFwGeUHhGKvN_vlrVyNEkoBexlOKR-Wck50eEA','2019-08-09 03:47:00','2019-08-09 03:47:00','cf2a5902-db22-47c1-90f2-107f1a7cbaf7'),
+	(13,1,'XfASVaw_SA8QHrT1Y3pY7lYnQ7-npLt_rY1iM3SdwTIktGr9_idL6YhOb87xLWZ5MTEJ0LNd-Y-0HGy6rv7iy77-lnJ1816Di98g','2019-08-09 03:47:43','2019-08-09 03:47:43','20d1fcc2-b0b2-4f26-88ce-3a831054221c'),
+	(14,1,'2dYvB0ufXzmUXh8c2UV5tRqvLZpRKB659_woK9x5T44ymrfCBPFdzzzcy2kNzZK5ROyI1DTaHE7_E-uaq1mA0KmVPSivoLxfxTYD','2019-08-09 03:48:02','2019-08-09 03:48:02','ec0da15e-4e1a-47c7-b060-3401b5df1584'),
+	(15,1,'MOLX5-Si6ECT9cuW55rtr8MT-DOgBpYG3NbB3ANJ8iL4Oj8YVN_HhVeWxUVhcpTr-w9MIL71FWvjT8QyxKGu6Gxwjnkg_0u__YOB','2019-08-09 03:48:30','2019-08-09 03:48:30','f790e7f6-63e6-44b9-a9f3-0ebe92bc9051'),
+	(16,1,'ej5hvMrN9vWLXxr63jkcs_Atgp61ZWWsrA0q8ynOKHIfCI2l6Ah9elmwKwupfiJfh9OR7zyem3IXHW1BV7WAeS_7qkn0h-CPfeIJ','2019-08-09 03:50:01','2019-08-09 03:50:01','44f84aae-12b3-44d3-b7e8-4d59a99361d9'),
+	(17,1,'-4J4Fso_be-LEwhoCixi4EukABYYCZnE3_zFepONt5X83FnjhFdg8RtdcsCv7usPo7e2rNiqP4HKfAvSaE7SHZMLqUkjLxsUrfL8','2019-08-09 03:50:19','2019-08-09 03:50:19','2a219d7d-9212-44da-9375-6633823d9407'),
+	(18,1,'wkBqSkGTwTB4dkB3yj67uqQHc3RKoyLSP72yqafIwJblLjnaqB_1nsBdcopNy4PPVhX7mAE6aX4qviwW8eZy0aKl3jGmyJA-JirS','2019-08-09 03:50:28','2019-08-09 03:50:28','8c957185-ad17-4719-b526-50929e5157ed'),
+	(19,1,'2hgJgM3JftXw5mhzIYUIBGkL9OIb6swP-UPYvHvM_ycACElLrtHrMI5ZIUtU0KsbOovtNfoDUvwsZ08L0-6e0tfU0gQh93yaQulI','2019-08-09 03:50:55','2019-08-09 03:50:55','1ec65aa1-3b7b-4ec9-8f03-d0fd763b9a3f'),
+	(20,1,'38ei2Ww7L45riHSPX8CoeOBrjZ4pkA8XiajjEI5m4usjq8kMhkYRjm3fO4EaB_4asGI_ekp2ZHmBY8HMFCRVL_3UclZynKUS9y6f','2019-08-09 03:52:12','2019-08-09 03:52:12','aee29bc9-9ae6-4625-840c-3fde74b319c4'),
+	(21,1,'8pbt_a7jugVv21-8YYRukSDONTmz1KPjxJu714hX9_lUuBf92p-IX7a0XJ8TMfrLANAUeRloNLWye8O9fVVQ-UBz2n6Iqjq8WtHR','2019-08-09 03:52:25','2019-08-09 03:52:25','24ea3d08-574e-45a3-881f-177c9183bc8d'),
+	(22,1,'RiC13Kd_9rxzcdp4fOkynHYl4Q4TMkHuLbn5IewhhDaJl1RHf4fz8j9KUJ16rVUh0ZLYmVbwtJhDM3F6-bSX_LK6lIg1Yfdri0Ym','2019-08-09 03:52:56','2019-08-09 03:52:56','bac231a5-59ff-4266-a952-a62dd9734545'),
+	(23,1,'LujpAxR0D3kAX9hrrV90dHqo9yEmwntEhiG8grARQkdvqiG2Ak2kQ_kTtqsKe_If6bzOit8ZmszlAukrJCm-Ub7Lsc4t47_mzW9z','2019-08-09 04:14:50','2019-08-09 04:14:50','6fc254a7-4e2a-460d-9252-e1dea73adb6b'),
+	(24,1,'uVtoZ07kQVOnNJBly7iphLYw8-k3dtL3fpZVkFeKStOsFye6uoQhxiHkDdskDhwIiltV2MbWG-v5lZGJvQf3LEP8TmGCXm3nwoMG','2019-08-09 04:24:16','2019-08-09 04:24:16','11cea045-c9da-4456-b8d6-090fcbdb9b0a'),
+	(25,1,'XV4loqP5HtcbbxZERCCGr4CQXIJ71SbnPA7DZbVCM3_m8E2o6xNkGVnlfgljRQUv6_8--MqdVZFXytYjeRIk1ZgR3wibLPeMdpmi','2019-08-09 11:52:52','2019-08-09 11:52:52','3e795dd0-ce51-4784-9399-dba38c327c8d'),
+	(26,47,'8cu3exWjOLQwZQqGxuTz8eeGyTC04pa5VyT7cmuLrHpNBIW19vDrqND_iNWNs1cG2zQn8ilts5CtVVndnogyPexG_Oq8d93i0gvn','2019-08-09 13:20:38','2019-08-09 13:20:38','751d6120-dd06-456e-97d7-819adc4f12f8'),
+	(27,1,'gwyhiRQRnzYfRMP8h9gvT3QI3fTaW3CXzCEI2JrvvZrhS767tGpAww5JL7Hr1MrpZPpCYNhsBKWUiJHECXb46p3KILXWYwO9L1gY','2019-08-09 13:21:29','2019-08-09 13:25:48','263302d8-f6c2-44a1-9830-c930cb17a1f8'),
+	(28,47,'qDJYwa8sJtu81zyAksHxtEkrwO66wci4QkeMSLK7NViDNraS8s0mj2iqCwpviLzNLi55EqP73IYXGPRG1ZdeaNaSSe8CuOhFPct6','2019-08-09 13:24:23','2019-08-09 13:24:23','96f229b0-24f7-4d0a-bd7c-34c293d52c2e');
 
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1918,7 +1995,7 @@ LOCK TABLES `userpreferences` WRITE;
 
 INSERT INTO `userpreferences` (`userId`, `preferences`)
 VALUES
-	(1,'{\"language\":\"en-US\"}');
+	(1,'{\"language\":\"en-US\",\"weekStartDay\":\"1\",\"enableDebugToolbarForSite\":false,\"enableDebugToolbarForCp\":false}');
 
 /*!40000 ALTER TABLE `userpreferences` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1971,7 +2048,9 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `username`, `photoId`, `firstName`, `lastName`, `email`, `password`, `admin`, `locked`, `suspended`, `pending`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `hasDashboard`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'Pageworks',NULL,NULL,NULL,'kylea@page.works','$2y$13$RPkJ9QSQixDxCrs6YGp2ruuU8O/xP39T9cy6Gy2GYbAYWzS27Wz0a',1,0,0,0,'2019-08-09 01:03:59',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2019-08-09 00:01:37','2019-08-09 00:01:37','2019-08-09 01:03:59','48e996b7-af0c-44d8-bd46-310137cc127b');
+	(1,'Pageworks',NULL,'Kyle Andrews','','kylea@page.works','$2y$13$RPkJ9QSQixDxCrs6YGp2ruuU8O/xP39T9cy6Gy2GYbAYWzS27Wz0a',1,0,0,0,'2019-08-09 13:21:29',NULL,NULL,NULL,'2019-08-09 03:29:57',NULL,1,NULL,NULL,NULL,0,'2019-08-09 00:01:37','2019-08-09 00:01:37','2019-08-09 13:21:29','48e996b7-af0c-44d8-bd46-310137cc127b'),
+	(47,'test@example.com',NULL,NULL,NULL,'test@example.com','$2y$13$WV66y6FJ4iTjttqAc/KCyunhai/B9MU7qP5ZilFEHjTovoH1d3eVO',0,0,0,0,'2019-08-09 13:24:23',NULL,NULL,NULL,'2019-08-09 13:24:12',NULL,0,NULL,NULL,NULL,0,'2019-08-09 13:15:11','2019-08-09 13:15:11','2019-08-09 13:24:23','7ae85e22-9bd1-40b8-96a5-2d83f55ec731'),
+	(48,'test2@example.com',NULL,'Kyle Andrews',NULL,'test2@example.com','$2y$13$r70CjFP20BuVoqQMYezo/.xeohtQGy/NWzefcWoNmaEl7OPYZ.bA2',0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,0,'2019-08-09 13:24:48','2019-08-09 13:24:48','2019-08-09 13:24:48','7247cf0d-9256-44f5-af88-a6da50302e77');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
