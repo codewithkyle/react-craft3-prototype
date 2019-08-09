@@ -14,6 +14,7 @@ use modules\prototypemodule\PrototypeModule;
 
 use Craft;
 use craft\base\Component;
+use craft\elements\User;
 
 /**
  * @author    Kyle Andrews
@@ -97,5 +98,80 @@ class UserService extends Component
         Craft::$app->getElements()->saveElement($user, true);
     
         return $response;    
+    }
+
+    public function signupUser(Array $params)
+    {
+        $response['success'] = true;
+        $response['errors'] = [];
+
+        if (!isset($params['name']))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [
+                'id' => 'name',
+                'message' => 'This field is required.'
+            ];
+        }
+
+        if (!isset($params['email']))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [
+                'id' => 'email',
+                'message' => 'This field is required.'
+            ];
+        }
+
+        if (!isset($params['password']))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [
+                'id' => 'password',
+                'message' => 'This field is required.'
+            ];
+        }
+
+        if (!$response['success'])
+        {
+            return $response;
+        }
+
+        $name = $params['name'];
+        $email = $params['email'];
+        $password = $params['password'];
+
+        $existingUser = Craft::$app->getUsers()->getUserByUsernameOrEmail($email);
+        if(!empty($existingUser))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [
+                'id' => 'email',
+                'message' => 'Email address already exists. Try signing in.'
+            ];
+            return $response;
+        }
+
+        $user = new User();
+        $user->newPassword = $password;
+        $user->email = $email;
+        $user->username = $user->email;
+        $user->firstName = $name;
+        $token = Craft::$app->request->getCsrfToken();
+        $response['token'] = $token;
+        $user->setFieldValue('sessionToken', $token);
+
+        if (!Craft::$app->getElements()->saveElement($user, true))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [
+                'message' => 'Failed to create account, please try again later.'
+            ];
+            return $response;
+        }
+
+        Craft::$app->getUsers()->activateUser($user);
+
+        return $response;
     }
 }

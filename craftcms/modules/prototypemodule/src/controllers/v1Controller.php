@@ -32,7 +32,7 @@ class V1Controller extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['login'];
+    protected $allowAnonymous = true;
 
     // Public Methods
     // =========================================================================
@@ -42,6 +42,15 @@ class V1Controller extends Controller
         $this->requireAcceptsJson();
         $request = Craft::$app->getRequest();
         $response = PrototypeModule::$instance->userService->loginUser($request->getBodyParams());
+        return json_encode($response);
+    }
+
+    public function actionSignup()
+    {
+        $this->requirePostRequest();
+        $this->requireAcceptsJson();
+        $request = Craft::$app->getRequest();
+        $response = PrototypeModule::$instance->userService->signupUser($request->getBodyParams());
         return json_encode($response);
     }
 }

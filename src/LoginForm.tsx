@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
+import { SignupForm } from './SignupForm';
+
 export class LoginForm extends React.Component
 {
 	private _loginForm : HTMLFormElement|null;
@@ -15,6 +17,18 @@ export class LoginForm extends React.Component
 	}
 
 	private submitFormEvent:EventListener = this.submitLoginForm.bind(this);
+	private handleSignupClick:EventListener = this.showSignupForm.bind(this);
+
+	private showSignupForm()
+	{
+		
+		if (this._loginForm && this._loginForm.parentElement)
+		{
+			this._loginForm.parentElement.style.display = 'none';
+		}
+
+		new SignupForm();
+	}
 
 	private submitLoginForm(e:Event)
 	{
@@ -47,11 +61,18 @@ export class LoginForm extends React.Component
 
 	componentDidMount()
 	{
-		this._loginForm = document.body.querySelector('form');
+		this._loginForm = document.body.querySelector('.t-login form');
 
 		if (this._loginForm)
 		{
 			this._loginForm.addEventListener('submit', this.submitFormEvent);
+		}
+
+		const signupButton:HTMLButtonElement|null = document.body.querySelector('.t-login p button');
+
+		if (signupButton)
+		{
+			signupButton.addEventListener('click', this.handleSignupClick);
 		}
 	}
 
@@ -59,11 +80,12 @@ export class LoginForm extends React.Component
 	{
 		return (
 			<div className="t-login">
-				<form className="is-hidden">
-					<input type="email" name="email" placeholder="Email" />
-					<input type="password" name="password" placeholder="Password" />
+				<form>
+					<input type="email" name="email" placeholder="Email" required />
+					<input type="password" name="password" placeholder="Password" required />
 					<button type="submit">Log In</button>
 				</form>
+				<p>Don't have an account? <button>Sign up.</button></p>
 			</div>
 		);
 	}
