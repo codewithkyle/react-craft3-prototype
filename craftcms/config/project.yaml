@@ -1,10 +1,140 @@
+categoryGroups:
+  7a0bc2f7-91c7-4c92-b0f0-a3383a06a2b0:
+    name: 'Course Types'
+    handle: courseTypes
+    structure:
+      uid: d8ea95b5-bcb3-44e7-b258-bf4a1b697a36
+      maxLevels: 1
+    siteSettings:
+      0331d7ad-d2fe-421d-ae57-64791ca2a539:
+        hasUrls: false
+        uriFormat: null
+        template: null
+dateModified: 1565313641
 email:
   fromEmail: kylea@page.works
   fromName: 'React Craft Demo'
   transportType: craft\mail\transportadapters\Sendmail
 fieldGroups:
+  abc90887-377d-4118-bdf0-679bf307798a:
+    name: Courses
   e04df05e-a971-4660-b135-fd254709453a:
     name: Common
+fields:
+  175f369a-1d32-43c7-b42c-acfe87962d1f:
+    name: Description
+    handle: description
+    instructions: 'Provide a brief description of the course.'
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: '1'
+      initialRows: '4'
+      charLimit: '500'
+      columnType: text
+    contentColumnType: text
+    fieldGroup: abc90887-377d-4118-bdf0-679bf307798a
+  32a1307d-aae2-4936-b9bf-3ff48f4889e8:
+    name: Category
+    handle: category
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Categories
+    settings:
+      allowLimit: false
+      allowMultipleSources: false
+      branchLimit: '1'
+      sources: '*'
+      source: 'group:7a0bc2f7-91c7-4c92-b0f0-a3383a06a2b0'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: ''
+      localizeRelations: false
+      validateRelatedElements: '1'
+    contentColumnType: string
+    fieldGroup: abc90887-377d-4118-bdf0-679bf307798a
+  95c61ac9-e37a-4c61-8a17-9d7ec100f182:
+    name: Duration
+    handle: duration
+    instructions: 'Display as number of hours and number of minutes. Ex: 0h 32m or 1h 00m'
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: '1'
+      multiline: ''
+      initialRows: '4'
+      charLimit: '10'
+      columnType: text
+    contentColumnType: text
+    fieldGroup: abc90887-377d-4118-bdf0-679bf307798a
+  c39304ce-56e7-4782-849e-8edb2ca268e1:
+    name: Points
+    handle: points
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: '0'
+      min: '0'
+      max: null
+      decimals: 0
+      size: null
+      prefix: ''
+      suffix: pt
+    contentColumnType: integer(10)
+    fieldGroup: abc90887-377d-4118-bdf0-679bf307798a
+sections:
+  406866aa-9a7c-42c0-b9f3-94cc3ed41fc6:
+    name: Courses
+    handle: courses
+    type: channel
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      0331d7ad-d2fe-421d-ae57-64791ca2a539:
+        enabledByDefault: true
+        hasUrls: false
+        uriFormat: null
+        template: null
+    entryTypes:
+      fa816d56-cd8d-4350-8d4c-56b8b14038d5:
+        name: Courses
+        handle: courses
+        hasTitleField: true
+        titleLabel: Name
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          e56644ab-6fda-4b23-aa46-7583f0ead9b1:
+            tabs:
+              -
+                name: 'Course Details'
+                sortOrder: 1
+                fields:
+                  175f369a-1d32-43c7-b42c-acfe87962d1f:
+                    required: true
+                    sortOrder: 1
+                  32a1307d-aae2-4936-b9bf-3ff48f4889e8:
+                    required: true
+                    sortOrder: 2
+                  95c61ac9-e37a-4c61-8a17-9d7ec100f182:
+                    required: true
+                    sortOrder: 3
+                  c39304ce-56e7-4782-849e-8edb2ca268e1:
+                    required: true
+                    sortOrder: 4
 siteGroups:
   687dcffb-f484-4557-9bde-d1d85efb4911:
     name: 'React Craft Demo'
@@ -19,14 +149,14 @@ sites:
     siteGroup: 687dcffb-f484-4557-9bde-d1d85efb4911
     sortOrder: 1
 system:
-  edition: solo
+  edition: pro
   name: 'React Craft Demo'
   live: true
   schemaVersion: 3.2.16
   timeZone: America/Los_Angeles
 users:
   requireEmailVerification: true
-  allowPublicRegistration: false
-  defaultGroup: null
+  allowPublicRegistration: true
+  defaultGroup: ''
   photoVolumeUid: null
-  photoSubpath: ''
+  photoSubpath: null

@@ -19,7 +19,7 @@ cd ./craftcms && composer install
 
 4. Point an apache web server to `craftcms/public`
 5. Create an new empty database
-6. Import the database file from `craftcms/`
+6. Import the `database.sql` file from `craftcms/` directory
 7. Clone the `.env.example` file
 
 ```script
