@@ -106,25 +106,9 @@ class PrototypeModule extends Module
             );
         }
 
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = 'modules/prototype-module/default';
-            }
-        );
-
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_CP_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['cpActionTrigger1'] = 'modules/prototype-module/default/do-something';
-            }
-        );
-
         Craft::info(
             Craft::t(
-                'prototype-module',
+                'prototype',
                 '{name} module loaded',
                 ['name' => 'prototype']
             ),

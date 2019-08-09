@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: false
         uriFormat: null
         template: null
-dateModified: 1565313641
+dateModified: 1565315174
 email:
   fromEmail: kylea@page.works
   fromName: 'React Craft Demo'
@@ -155,7 +155,7 @@ system:
   schemaVersion: 3.2.16
   timeZone: America/Los_Angeles
 users:
-  requireEmailVerification: true
+  requireEmailVerification: false
   allowPublicRegistration: true
   defaultGroup: ''
   photoVolumeUid: null
