@@ -20,6 +20,9 @@ return [
                 'coursesService' => [
                     'class' => 'modules\prototypemodule\services\CoursesService',
                 ],
+                'userService' => [
+                    'class' => 'modules\prototypemodule\services\UserService',
+                ],
             ],
         ],
     ],

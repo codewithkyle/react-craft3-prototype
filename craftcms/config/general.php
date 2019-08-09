@@ -7,6 +7,7 @@ return [
         'cpTrigger' => 'webmaster',
         'securityKey' => getenv('SECURITY_KEY'),
         'useProjectConfigFile' => true,
+        'enableCsrfProtection' => false,
     ],
     'dev' => [
         'devMode' => true,

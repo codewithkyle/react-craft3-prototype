@@ -10,12 +10,14 @@ categoryGroups:
         hasUrls: false
         uriFormat: null
         template: null
-dateModified: 1565315174
+dateModified: 1565324955
 email:
   fromEmail: kylea@page.works
   fromName: 'React Craft Demo'
   transportType: craft\mail\transportadapters\Sendmail
 fieldGroups:
+  798e7478-3b13-49c4-adfa-028454077ca0:
+    name: Users
   abc90887-377d-4118-bdf0-679bf307798a:
     name: Courses
   e04df05e-a971-4660-b135-fd254709453a:
@@ -60,6 +62,25 @@ fields:
       validateRelatedElements: '1'
     contentColumnType: string
     fieldGroup: abc90887-377d-4118-bdf0-679bf307798a
+  5d952193-0965-49ee-a0fc-babfd1263a10:
+    name: 'Session Token'
+    handle: sessionToken
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: mmikkel\incognitofield\fields\IncognitoFieldType
+    settings:
+      mode: hidden
+      modeOverride: ''
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 798e7478-3b13-49c4-adfa-028454077ca0
   95c61ac9-e37a-4c61-8a17-9d7ec100f182:
     name: Duration
     handle: duration
@@ -95,6 +116,11 @@ fields:
       suffix: pt
     contentColumnType: integer(10)
     fieldGroup: abc90887-377d-4118-bdf0-679bf307798a
+plugins:
+  incognito-field:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.1
 sections:
   406866aa-9a7c-42c0-b9f3-94cc3ed41fc6:
     name: Courses
@@ -160,3 +186,13 @@ users:
   defaultGroup: ''
   photoVolumeUid: null
   photoSubpath: null
+  fieldLayouts:
+    d9505e4d-ef2d-4bfe-b32e-e159fa8195d3:
+      tabs:
+        -
+          name: Admin
+          sortOrder: 1
+          fields:
+            5d952193-0965-49ee-a0fc-babfd1263a10:
+              required: false
+              sortOrder: 1

@@ -14,6 +14,7 @@ use modules\prototypemodule\PrototypeModule;
 
 use Craft;
 use craft\web\Controller;
+use craft\web\Session;
 
 /**
  * @author    Kyle Andrews
@@ -31,15 +32,16 @@ class V1Controller extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['hello-world'];
+    protected $allowAnonymous = ['login'];
 
     // Public Methods
     // =========================================================================
-    public function actionHelloWorld()
+    public function actionLogin()
     {
         $this->requirePostRequest();
-        $response['success'] = true;
-        $response['message'] = 'Hello client';
+        $this->requireAcceptsJson();
+        $request = Craft::$app->getRequest();
+        $response = PrototypeModule::$instance->userService->loginUser($request->getBodyParams());
         return json_encode($response);
     }
 }

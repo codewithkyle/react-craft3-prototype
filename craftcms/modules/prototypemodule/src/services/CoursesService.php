@@ -20,7 +20,7 @@ use craft\base\Component;
  * @package   PrototypeModule
  * @since     1.0.0
  */
-class PrototypeModuleService extends Component
+class CoursesService extends Component
 {
     // Public Methods
     // =========================================================================
