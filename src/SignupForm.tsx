@@ -1,24 +1,35 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
+import { LoginForm } from './LoginForm';
+
 export class SignupForm extends React.Component
 {
 
 	private _root : HTMLElement;
-
 	private _form : HTMLFormElement|null;
 
 	constructor(props:any = null)
 	{
 		super(props);
 
-		this._form = null;
-
 		this._root = (document.body.querySelector('main') || document.body);
 		render(<SignupForm />, this._root);
+
+		this._form = null;
 	}
 
 	private handleFormSubmit:EventListener = this.submitSignupForm.bind(this);
+	private handleLoginClick:EventListener = this.showLoginForm.bind(this);
+
+	private showLoginForm()
+	{
+		if (this._form && this._form.parentElement)
+		{
+			this._form.parentElement.style.display = 'none';
+			new LoginForm();
+		}
+	}
 
 	private submitSignupForm(e:Event)
 	{
@@ -65,8 +76,14 @@ export class SignupForm extends React.Component
 		
 		if (this._form)
 		{
-			
 			this._form.addEventListener('submit', this.handleFormSubmit);
+		}
+
+		const loginButton = this._root.querySelector('.t-signup p button');
+
+		if (loginButton)
+		{
+			loginButton.addEventListener('click', this.handleLoginClick);
 		}
 	}
 

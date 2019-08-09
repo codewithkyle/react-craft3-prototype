@@ -8,7 +8,7 @@ export class LoginForm extends React.Component
 	private _loginForm : HTMLFormElement|null;
 	private _root : HTMLElement;
 
-	constructor(props:any)
+	constructor(props:any = null)
 	{
 		super(props);
 		this._loginForm = null;

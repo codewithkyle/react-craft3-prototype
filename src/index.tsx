@@ -24,7 +24,7 @@ class CoursesApp extends Component
 		}
 		else
 		{
-			new LoginForm(null);
+			new LoginForm();
 		}
 	}
 
