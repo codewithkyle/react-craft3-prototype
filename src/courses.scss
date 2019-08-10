@@ -11,6 +11,7 @@
             font-size: 1.5rem;
             display: block;
             line-height: 1.75rem;
+            opacity: 0.87;
         }
 
         h2{
@@ -19,7 +20,7 @@
             opacity: 0.6;
         }
 
-        button{
+        button#add-course{
             line-height: 48px;
             color: var(--white);
             background-color: var(--primary);
@@ -31,6 +32,7 @@
             cursor: pointer;
             box-shadow: 0 4px 16px rgba(255, 163, 106, 0.6);
             transition: all 75ms ease;
+            vertical-align: top;
             font-size: 0.825rem;
 
             &:hover{
@@ -47,6 +49,134 @@
                 width: 1.15rem;
                 height: 1.15rem;
                 margin-right: 0.75rem;
+            }
+        }
+
+        button#search{
+            height: 48px;
+            width: 48px;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column wrap;
+            margin-right: 2rem;
+            box-shadow: 0 8px 32px rgba(20, 17, 64, 0.12);
+            cursor: pointer;
+            transition: all 75ms ease;
+            vertical-align: top;
+
+            &:hover{
+                background-color: #fafafa;
+            }
+
+            &:active{
+                background-color: #f5f5f5;
+                transform: translateY(2px);
+                box-shadow: 0 2px 8px rgba(20, 17, 64, 0.1);
+            }
+
+            svg{
+                opacity: 0.15;
+                width: 1.1rem;
+                height: 1.1rem;
+            }
+        }
+
+        input{
+            width: 0px;
+            height: 0px;
+            visibility: hidden;
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+
+            &:checked + label{
+                &:after{
+                    transform: translateX(100%);
+                }
+
+                div{
+                    &:first-of-type{
+                        svg{
+                            opacity: 0.15;
+                            color: var(--font);
+                        }
+                    }
+
+                    &:nth-child(2){
+                        svg{
+                            opacity: 0.87;
+                            color: var(--primary);
+                        }
+                    }
+                }
+            }
+        }
+
+        label{
+            margin-right: 1rem;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            box-shadow: 0 8px 32px rgba(20, 17, 64, 0.12);
+            vertical-align: top;
+            display: inline-flex;
+            align-items: center;
+            flex-flow: row nowrap;
+            cursor: pointer;
+            overflow: hidden;
+
+            &::after{
+                content:"";
+                width: 48px;
+                height: 48px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translateX(0);
+                background-color: var(--primary);
+                opacity: 0.1;
+                border-radius: 0.5rem;
+                transition: all 75ms ease;
+            }
+
+            &:hover{
+                &:after{
+                    opacity: 0.15;
+                }
+            }
+
+            &:active{
+                transform: translateY(2px);
+                box-shadow: 0 2px 8px rgba(20, 17, 64, 0.1);
+
+                &:after{
+                    opacity: 0.2;
+                }
+            }
+            
+            div{
+                width: 48px;
+                height: 48px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                flex-flow: column wrap;
+                transition: all 75ms ease;
+
+                &:first-of-type{
+                    svg{
+                        opacity: 0.87;
+                        color: var(--primary);
+                    }
+                }
+
+                svg{
+                    opacity: 0.15;
+                    width: 1.1rem;
+                    height: 1.1rem;
+                }
             }
         }
     }
