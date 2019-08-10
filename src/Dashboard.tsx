@@ -6,7 +6,7 @@ export class Dashboard extends Component
 	constructor(props:any = null)
 	{
 		super(props);
-		const view = document.body.querySelector('main section');
+		const view = document.body.querySelector('main article');
 		if (view)
 		{
 			view.classList.add('dashboard');

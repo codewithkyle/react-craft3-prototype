@@ -12,7 +12,7 @@ export class View extends Component
 	render()
 	{
 		return(
-			<section></section>
+			<article></article>
 		);
 	}
 }
