@@ -64,7 +64,8 @@ aside
                 background-color: rgba(249, 250, 255, 0.05);
             }
 
-            &.is-active{                
+            &.is-active{
+                font-weight: 600;         
                 color: var(--primary);
                 background-color: rgba(255, 163, 106, 0.07);
 

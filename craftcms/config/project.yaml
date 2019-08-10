@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: false
         uriFormat: null
         template: null
-dateModified: 1565388726
+dateModified: 1565468842
 email:
   fromEmail: kylea@page.works
   fromName: 'React Craft Demo'
@@ -98,6 +98,25 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: abc90887-377d-4118-bdf0-679bf307798a
+  beb7945f-3376-467e-972a-57a38e2470de:
+    name: Courses
+    handle: courses
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: mmikkel\incognitofield\fields\IncognitoFieldType
+    settings:
+      mode: plain
+      modeOverride: ''
+      placeholder: ''
+      code: '1'
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 798e7478-3b13-49c4-adfa-028454077ca0
   c39304ce-56e7-4782-849e-8edb2ca268e1:
     name: Points
     handle: points
@@ -191,7 +210,7 @@ users:
   photoVolumeUid: null
   photoSubpath: null
   fieldLayouts:
-    d9505e4d-ef2d-4bfe-b32e-e159fa8195d3:
+    1afbabde-d6c5-4a66-b703-2d1426bcfde2:
       tabs:
         -
           name: Admin
@@ -200,3 +219,6 @@ users:
             5d952193-0965-49ee-a0fc-babfd1263a10:
               required: false
               sortOrder: 1
+            beb7945f-3376-467e-972a-57a38e2470de:
+              required: false
+              sortOrder: 2

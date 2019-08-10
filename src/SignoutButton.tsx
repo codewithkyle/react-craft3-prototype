@@ -13,8 +13,6 @@ export class SignoutButton extends Component
 			return;
 		}
 
-		console.log('test');
-
 		const data = new FormData();
 		data.append('token', token);
 

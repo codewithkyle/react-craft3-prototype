@@ -201,4 +201,30 @@ class UserService extends Component
 
         return $response;
     }
+
+    public function getCourses(Array $params)
+    {
+        $response['success'] = true;
+        $response['errors'] = [];
+
+        if (!isset($params['token']))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [ 'message' => 'Missing token' ];
+            return $response;
+        }
+
+        $user = User::find()->sessionToken($params['token'])->one();
+
+        if (empty($user))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [ 'message' => 'Invalid token' ];
+            return $response;
+        }
+
+        $response['courses'] = json_decode($user->getFieldValue('courses'));
+
+        return $response;
+    }
 }
