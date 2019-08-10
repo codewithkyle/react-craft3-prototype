@@ -42,7 +42,7 @@ aside
         flex-flow: column wrap;
         width: 100%;
 
-        button{
+        a{
             height: 48px;
             padding-left: 4rem;
             color: rgba(249, 250, 255, 0.3);
@@ -50,6 +50,7 @@ aside
             border-radius: 0 0.5rem 0.5rem 0;
             text-align: left;
             cursor: pointer;
+            line-height: 48px;
             transition: all 150ms ease;
 
             &:hover{
