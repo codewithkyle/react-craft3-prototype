@@ -71,4 +71,13 @@ class V1Controller extends Controller
         $response = PrototypeModule::$instance->userService->getCourses($request->getBodyParams());
         return json_encode($response);
     }
+
+    public function actionPurchaseCourse()
+    {
+        $this->requirePostRequest();
+        $this->requireAcceptsJson();
+        $request = Craft::$app->getRequest();
+        $response = PrototypeModule::$instance->userService->purchaseCourse($request->getBodyParams());
+        return json_encode($response);
+    }
 }

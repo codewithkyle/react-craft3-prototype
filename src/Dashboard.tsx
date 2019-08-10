@@ -7,7 +7,11 @@ export class Dashboard extends Component
 	{
 		super(props);
 		const view = document.body.querySelector('main section');
-		render(<Dashboard />, view);
+		if (view)
+		{
+			view.classList.add('dashboard');
+			render(<Dashboard />, view);
+		}
 	}
 	
 	render()

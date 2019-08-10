@@ -3,6 +3,8 @@
     /* Colour Pallet */
     --navy: #172951;
     --primary: #ffa36a;
+    --primary-active: hsl(23, 100%, 68%);
+    --primary-hover: hsl(23, 100%, 73%);
 
     /* Shades */
     --off-white: #f9faff;
@@ -51,6 +53,7 @@ main.t-dashboard section
     display: block;
     width: 100%;
     height: 100%;
+    padding: 2rem;
 }
 
 main.t-dashboard aside

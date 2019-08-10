@@ -187,6 +187,8 @@ class UserService extends Component
         $token = Craft::$app->request->getCsrfToken();
         $response['token'] = $token;
         $user->setFieldValue('sessionToken', $token);
+        $courses = [];
+        $user->setFieldValue('courses', json_encode($courses));
 
         if (!Craft::$app->getElements()->saveElement($user, true))
         {
@@ -224,6 +226,38 @@ class UserService extends Component
         }
 
         $response['courses'] = json_decode($user->getFieldValue('courses'));
+
+        return $response;
+    }
+
+    public function purchaseCourse(Array $params)
+    {
+        $response['success'] = true;
+        $response['errors'] = [];
+
+        if (!isset($params['token']))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [ 'message' => 'Missing token' ];
+            return $response;
+        }
+        else if (!isset($params['courseId']))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [ 'message' => 'Missing course ID' ];
+            return $response;
+        }
+
+        $user = User::find()->sessionToken($params['token'])->one();
+
+        if (empty($user))
+        {
+            $response['success'] = false;
+            $response['errors'][] = [ 'message' => 'Invalid token' ];
+            return $response;
+        }
+
+        $userCourses = json_decode($user->getFieldValue('courses'));
 
         return $response;
     }
