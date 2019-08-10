@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link, BrowserRouter as Router } from "react-router-dom";
+import { Route, NavLink, BrowserRouter as Router } from "react-router-dom";
 
 import './sidebar.scss';
 
@@ -8,6 +8,11 @@ import { Dashboard } from './Dashboard';
 
 export class Sidebar extends Component
 {
+	componentWillMount()
+	{
+		window.history.replaceState({}, document.title, '/dashboard');
+	}
+	
 	render()
 	{
 		return(
@@ -21,11 +26,11 @@ export class Sidebar extends Component
 				</div>
 				<Router>
 					<nav>
-						<Link to="/dashboard" className="is-active">Dashboard</Link>
-						<Link to="/courses">Courses</Link>
-						<Link to="/wishlist">Wishlist</Link>
-						<Link to="/teach">Teach</Link>
-						<Link to="/settings">Settings</Link>
+						<NavLink to="/dashboard" activeClassName="is-active">Dashboard</NavLink>
+						<NavLink to="/courses" activeClassName="is-active">Courses</NavLink>
+						<NavLink to="/wishlist" activeClassName="is-active">Wishlist</NavLink>
+						<NavLink to="/teach" activeClassName="is-active">Teach</NavLink>
+						<NavLink to="/settings" activeClassName="is-active">Settings</NavLink>
 					</nav>
 
 					<Route path="/dashboard" component={Dashboard} />
