@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 
+import { Dashboard } from './Dashboard';
+
 export class View extends Component
 {
+	componentDidMount()
+	{
+		new Dashboard();
+	}
+
 	render()
 	{
 		return(
-			<section>
-				<h1>View</h1>
-			</section>
+			<section></section>
 		);
 	}
 }
