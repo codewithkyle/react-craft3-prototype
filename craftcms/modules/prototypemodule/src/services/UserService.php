@@ -245,6 +245,8 @@ class UserService extends Component
             $response['courses'][] = $newCourse;
         }
 
+        $response['courses'] = array_reverse($response['courses']);
+
         return $response;
     }
 
