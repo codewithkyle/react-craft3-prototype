@@ -3,6 +3,8 @@ import { render } from "react-dom";
 
 import './courses.scss';
 
+import { CoursesGrid } from './CoursesGrid';
+
 export class Courses extends Component
 {
 	private _courses:any;
@@ -52,20 +54,28 @@ export class Courses extends Component
 		.catch(error => {
 			console.error('Failed to get users purchased courses', error);
 		});
-		
+	}
+
+	private handleAddCourseButtonClick:EventListener = this.showAllCoursesGrid;
+
+	private showAllCoursesGrid()
+	{
+		const section = document.body.querySelector('main article section');
+		if (section)
+		{
+			new CoursesGrid();
+		}
 	}
 
 	componentDidMount()
 	{
 		const courseCount = document.body.querySelector('main article h2');
-
 		if (courseCount)
 		{
 			courseCount.innerHTML = `${ this._courses.length } ${ (this._courses.length === 1) ? 'Course' : 'Courses' }`
 		}
 
 		const section = document.body.querySelector('main article section');
-
 		if (section)
 		{
 			if (!this._courses.length)
@@ -73,6 +83,12 @@ export class Courses extends Component
 				section.classList.add('is-empty');
 				section.innerHTML = '>_<';
 			}
+		}
+
+		const addACourseButton = document.body.querySelector('main article .shell #add-course');
+		if (addACourseButton)
+		{
+			addACourseButton.addEventListener('click', this.handleAddCourseButtonClick);
 		}
 	}
 	
