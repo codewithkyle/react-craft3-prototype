@@ -5,9 +5,18 @@ import './courses.scss';
 
 import { CoursesGrid } from './CoursesGrid';
 
+interface Course{
+	title : string;
+	description : string;
+	category : string;
+	duration : string;
+	points : string;
+	id : string;
+}
+
 export class Courses extends Component
 {
-	private _courses:any;
+	private _courses : Array<Course>;
 
 	constructor(props:any = null)
 	{
@@ -55,9 +64,14 @@ export class Courses extends Component
 					}
 					else
 					{
-						section.classList.remove('card-grid');
-						section.innerHTML = '';
+						this.generateCourseList(section as HTMLElement);
 					}
+				}
+
+				const courseCount = document.body.querySelector('main article h2');
+				if (courseCount)
+				{
+					courseCount.innerHTML = `${ this._courses.length } ${ (this._courses.length === 1) ? 'Course' : 'Courses' }`
 				}
 			}
 
@@ -73,6 +87,36 @@ export class Courses extends Component
 		});
 	}
 
+	private generateCourseList(section:HTMLElement)
+	{
+		section.classList.remove('card-grid');
+		section.classList.add('courses-list');
+		section.innerHTML = '';
+
+		const coursesHeader = document.createElement('div');
+		coursesHeader.classList.add('list-header');
+		coursesHeader.innerHTML += '<span>Course Name</span>';
+		coursesHeader.innerHTML += '<span>Category</span>';
+		coursesHeader.innerHTML += '<span>Duration</span>';
+		coursesHeader.innerHTML += '<span>Description</span>';
+		coursesHeader.innerHTML += '<span>Status</span>';
+		coursesHeader.innerHTML += '<span>Points</span>';
+		section.appendChild(coursesHeader);
+
+		for (let i = 0; i < this._courses.length; i++)
+		{
+			const listItem = document.createElement('div');
+			listItem.classList.add('list-item');
+			listItem.innerHTML += `<span>${ this._courses[i].title }</span>`;
+			listItem.innerHTML += `<span>${ this._courses[i].category }</span>`;
+			listItem.innerHTML += `<span>${ this._courses[i].duration }</span>`;
+			listItem.innerHTML += `<span>${ this._courses[i].description }</span>`;
+			listItem.innerHTML += `<span>STATUS</span>`;
+			listItem.innerHTML += `<span>${ this._courses[i].points } pts</span>`;
+			section.appendChild(listItem);
+		}
+	}
+
 	private handleAddCourseButtonClick:EventListener = this.showAllCoursesGrid;
 
 	private showAllCoursesGrid()
@@ -86,12 +130,6 @@ export class Courses extends Component
 
 	componentDidMount()
 	{
-		const courseCount = document.body.querySelector('main article h2');
-		if (courseCount)
-		{
-			courseCount.innerHTML = `${ this._courses.length } ${ (this._courses.length === 1) ? 'Course' : 'Courses' }`
-		}
-
 		const addACourseButton = document.body.querySelector('main article .shell #add-course');
 		if (addACourseButton)
 		{

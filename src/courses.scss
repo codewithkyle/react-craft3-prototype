@@ -281,4 +281,65 @@
             }
         }
     }
+
+    .courses-list{
+        display: grid;
+        gap: 0.5rem;
+        width: 100%;
+        grid-template-rows: 1fr;
+
+        .list-header{
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr 1fr 1fr;
+            gap: 1rem;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            padding: 0 2rem;
+            height: 52px;
+            line-height: 52px; 
+            width: 100%;
+            font-size: 0.865rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 1px 4px rgba(20, 17, 64, 0.025);
+
+            span{
+                opacity: 0.3;
+            }
+        }
+
+        .list-item{
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr 1fr 1fr;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            padding: 0 2rem;
+            height: 52px;
+            line-height: 52px; 
+            width: 100%;
+            gap: 1rem;
+            font-size: 0.865rem;
+            box-shadow: 0 1px 4px rgba(20, 17, 64, 0.025);
+            cursor: pointer;
+            user-select: none;
+            z-index: 5;
+            transition: all 75ms ease;
+
+            &:hover{
+                box-shadow: 0 6px 32px rgba(94, 91, 143, 0.125);
+                transform: translateY(-3px);
+                z-index: 10;
+            }
+
+            span{
+                opacity: 0.87;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                &:first-child{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
 }

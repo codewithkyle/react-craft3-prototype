@@ -226,7 +226,24 @@ class UserService extends Component
             return $response;
         }
 
-        $response['courses'] = json_decode($user->getFieldValue('courses'));
+        $response['courses'] = [];
+        $purchasedCourses = json_decode($user->getFieldValue('courses'));
+
+        foreach ($purchasedCourses as $purchasedCourse)
+        {
+            $course = Entry::find()->section('courses')->id($purchasedCourse->id)->with('category')->one();
+            $newCourse = [
+                'id' => $course->id,
+                'title' => $course->title,
+                'description' => $course->description,
+                'duration' => $course->duration,
+                'category' => $course->category[0]->title,
+                'points' => $course->points,
+                'timestamp' => $purchasedCourse->timestamp
+            ];
+
+            $response['courses'][] = $newCourse;
+        }
 
         return $response;
     }
@@ -260,7 +277,7 @@ class UserService extends Component
 
         $userCourses = json_decode($user->getFieldValue('courses'));
 
-        $course = Entry::find()->section('courses')->id($params['courseId']);
+        $course = Entry::find()->section('courses')->id($params['courseId'])->one();
 
         $newCourse = [
             'id' => $course->id,
