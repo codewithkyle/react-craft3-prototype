@@ -15,6 +15,7 @@ use modules\prototypemodule\PrototypeModule;
 use Craft;
 use craft\base\Component;
 use craft\elements\User;
+use craft\elements\Entry;
 
 /**
  * @author    Kyle Andrews
@@ -258,6 +259,18 @@ class UserService extends Component
         }
 
         $userCourses = json_decode($user->getFieldValue('courses'));
+
+        $course = Entry::find()->section('courses')->id($params['courseId']);
+
+        $newCourse = [
+            'id' => $course->id,
+            'timestamp' => 0,
+        ];
+
+        $userCourses[] = $newCourse;
+
+        $user->setFieldValue('courses', json_encode($userCourses));
+        Craft::$app->getElements()->saveElement($user, true);
 
         return $response;
     }

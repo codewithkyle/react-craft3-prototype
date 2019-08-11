@@ -211,7 +211,15 @@
         display: grid;
         gap: 2rem;
         width: 100%;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        
+        @media (min-width: 1024px){
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: 1400px){
+            grid-template-columns: 1fr 1fr 1fr;
+        }
 
         .course-card{
             background-color: var(--white);

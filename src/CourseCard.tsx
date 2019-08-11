@@ -37,7 +37,7 @@ export class CourseCard extends Component
 		data.append('token', token);
 		data.append('courseId', this._course.id);
 
-		fetch('http://react-craft.local/actions/prototype/v1/purchase-courses',
+		fetch('http://react-craft.local/actions/prototype/v1/purchase-course',
 		{
 			method: 'POST',
 			headers: new Headers({
