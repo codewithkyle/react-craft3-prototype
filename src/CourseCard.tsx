@@ -1,5 +1,7 @@
 import { Component } from "react";
 
+import { Courses } from './Courses';
+
 interface Course{
 	title : string;
 	description : string;
@@ -48,7 +50,10 @@ export class CourseCard extends Component
 		})
 		.then(request => request.json())
 		.then(response => {
-			console.log(response);
+			if (response.success)
+			{
+				new Courses();
+			}
 		})
 		.catch(error => {
 			console.error('Failed to get users purchased courses', error);

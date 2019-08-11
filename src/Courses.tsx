@@ -25,6 +25,8 @@ export class Courses extends Component
 			return;
 		}
 
+		console.log('Hello');
+
 		const data = new FormData();
 		data.append('token', token);
 
@@ -42,6 +44,21 @@ export class Courses extends Component
 			if (response.success)
 			{
 				this._courses = response.courses;
+
+				const section = document.body.querySelector('main article section');
+				if (section)
+				{
+					if (!this._courses.length)
+					{
+						section.classList.add('is-empty');
+						section.innerHTML = '>_<';
+					}
+					else
+					{
+						section.classList.remove('card-grid');
+						section.innerHTML = '';
+					}
+				}
 			}
 
 			const view = document.body.querySelector('main article');
@@ -73,16 +90,6 @@ export class Courses extends Component
 		if (courseCount)
 		{
 			courseCount.innerHTML = `${ this._courses.length } ${ (this._courses.length === 1) ? 'Course' : 'Courses' }`
-		}
-
-		const section = document.body.querySelector('main article section');
-		if (section)
-		{
-			if (!this._courses.length)
-			{
-				section.classList.add('is-empty');
-				section.innerHTML = '>_<';
-			}
 		}
 
 		const addACourseButton = document.body.querySelector('main article .shell #add-course');
