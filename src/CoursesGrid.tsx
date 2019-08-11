@@ -1,10 +1,16 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import { Component } from "react";
 
 import './courses.scss';
 
+import { CourseCard } from './CourseCard';
+
 interface Course{
 	title : string;
+	description : string;
+	category : string;
+	duration : string;
+	points : string;
+	id : string;
 }
 
 export class CoursesGrid extends Component
@@ -51,9 +57,19 @@ export class CoursesGrid extends Component
 		if (view)
 		{
 			view.innerHTML = '';
+			view.classList.add('card-grid');
 			for (let i = 0; i < this._courses.length; i++)
 			{
-				view.innerHTML += `${ this._courses[i].title }<br>`;
+				const courseCard = document.createElement('div');
+				courseCard.id = `card-${ i }`;
+				courseCard.classList.add('course-card');
+				courseCard.innerHTML += '<h1></h1>';
+				courseCard.innerHTML += '<h2></h2>';
+				courseCard.innerHTML += '<h3></h3>';
+				courseCard.innerHTML += '<p></p>';
+				courseCard.innerHTML += '<button>Purchase</button>';
+				view.appendChild(courseCard);
+				new CourseCard(this._courses[i], i);
 			}
 		}
 	}

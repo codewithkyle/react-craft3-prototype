@@ -18,7 +18,8 @@ return [
                         'description' => $entry->description,
                         'duration' => $entry->duration,
                         'points' => $entry->points,
-                        'category' => $entry->category[0]->title
+                        'category' => $entry->category[0]->title,
+                        'id' => $entry->id
                     ];
                 },
             ];

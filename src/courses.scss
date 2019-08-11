@@ -206,4 +206,71 @@
             flex-flow: column wrap;
         }
     }
+    
+    .card-grid{
+        display: grid;
+        gap: 2rem;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .course-card{
+            background-color: var(--white);
+            box-shadow: 0 1px 4px rgba(20, 17, 64, 0.1), 0 4px 16px rgba(20, 17, 64, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+
+            h1,
+            h2,
+            h3{
+                display: block;
+            }
+
+            h1{
+                font-size: 1.5rem;
+                opacity: 0.87;
+                line-height: 1.75rem;
+                font-weight: 600;
+            }
+
+            h2,
+            h3{
+                opacity: 0.6;
+                line-height: 1.5rem;
+                font-size: 0.865rem;
+            }
+
+            h3{
+                display: none;
+            }
+
+            p{
+                display: none;
+                font-size: 0.865rem;
+                opacity: 0.3;
+                line-height: 1.618;
+            }
+
+            button{
+                padding: 0 1rem;
+                border-radius: 0.25rem;
+                background-color: var(--primary);
+                color: var(--white);
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 0.865rem;
+                height: 36px;
+                line-height: 36px;
+                margin-top: 0.5rem;
+                transition: all 75ms ease;
+
+                &:hover{
+                    background-color: var(--primary-hover);
+                }
+    
+                &:active{
+                    background-color: var(--primary-active);
+                }
+            }
+        }
+    }
 }
