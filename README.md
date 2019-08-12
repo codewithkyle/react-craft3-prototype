@@ -39,7 +39,7 @@ cp ./.env.example ./.env
 cd .. && npm run build && npm run preview
 ```
 
-10. Signup for an account, emails are not validated
+10. Sign up for an account, emails are not validated
 
 ## Design
 
@@ -48,3 +48,15 @@ cd .. && npm run build && npm run preview
 Design created by [Dicky Indrayan](https://dribbble.com/dickyindrayan), checkout the design on [dribbble](https://dribbble.com/shots/6905878-Yo-sinau-Course-Dashboard).
 
 ## Postmortem
+
+Before I dive into what I built or provide my opinion of React I'll start by saying that it is entirely possible that I didn't do things "correct". I didn't read/watch anything beyond the [Intro to React](https://reactjs.org/tutorial/tutorial.html) tutorial. It's possible that I got some of the paradigms "incorrect", my prior knowledge is based around my previous experiment with [web components](https://github.com/codewithkyle/web-components-prototype) and based on how easy native web components were I started this project with the assumption that React components would be just as easy/intuitive.
+
+React was interesting to work with and I can see the benefit of using an existing JavaScript framework instead of trying to use something like web components. The initial project setup timesink is minimal and most of the common problems have already been solved and questions answered by the community.
+
+However, there were a few things that I found unintuitive. Shall we get nitpicky? Yes, let's get nitpicky.
+
+I understand why `class` needs to be `className` but what I found frustrating is that when writing a `for` attribute for a `<label>`  is that `forName` didn't work, instead, I eventually found that the correct usage was `htmlFor`. I assume these minor inconsistencies are the side effect of open source development but it would have been nice to if either `className` and `forName` worked or `htmlClass` and `htmlFor` worked. Having to learn and remember these slight inconsistencies is frustrating.
+
+But you know, that's just, like, my opinion, man.
+
+
