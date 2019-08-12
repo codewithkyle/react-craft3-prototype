@@ -2,7 +2,13 @@
 
 The goal of this project is to quickly prototype what a React app would look like with content served from Craft CMS.
 
-### Running the prototype
+## Project Goals
+
+1. See what all the [hoopla's](https://www.youtube.com/watch?v=yICai9wwRl4) about with [React](https://reactjs.org/)
+1. Experiment with Crafts [Element API](https://plugins.craftcms.com/element-api) plugin
+1. Experiment with capabilities of using Craft as a [headless CMS](https://docs.craftcms.com/v3/dev/headless.html#app)
+
+## Running the Prototype
 
 1. Clone this repo and enter the base project directory with your terminal
 2. Install node modules
@@ -34,3 +40,11 @@ cd .. && npm run build && npm run preview
 ```
 
 10. Signup for an account, emails are not validated
+
+## Design
+
+<img alt="Yo-sinau Course Dashboard" src="./dribbble_reference.jpg" />
+
+Design created by [Dicky Indrayan](https://dribbble.com/dickyindrayan), checkout the design on [dribbble](https://dribbble.com/shots/6905878-Yo-sinau-Course-Dashboard).
+
+## Postmortem
