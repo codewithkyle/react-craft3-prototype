@@ -23,14 +23,14 @@ cd ./craftcms && composer install
 7. Clone the `.env.example` file
 
 ```script
-mv ./.env.example ./.env
+cp ./.env.example ./.env
 ```
 
 8. Open the new `.env` file and enter you local environment information
-9. Navigate to your web server in a browser
-10. Install Craft CMS
-11. Build the React app
+9. Build the React app
 
 ```script
 cd .. && npm run build && npm run preview
 ```
+
+10. Signup for an account, emails are not validated
